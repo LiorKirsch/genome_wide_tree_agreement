@@ -13,15 +13,15 @@ function anovaMain(startIndex, finishIndex)
     geneHasFoldChangeLargerThanX_dev_all_ages = findMoreThan2Folds(developing_expression, developing_gross_region_vec);    
     
 %     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6',[]);
-%     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6AllRegions',[]);
+    [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6AllRegions',[]);
 %     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kang',[]);
-%         [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangAllRegions',[]);
+        [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangAllRegions',[]);
 %     grossStructures = {'Frontal Lobe','hippocampal formation', 'Occipital Lobe', 'Parietal Lobe','Temporal Lobe','Amygdala','Striatum','Thalamus','Cerebellum'};
 
 %     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6Cortex',[]);
-    [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6CortexAllRegions', []);
+%     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6CortexAllRegions', []);
 %     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangCortex',[]);
-    [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangCortexAllRegions',[]);
+%     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangCortexAllRegions',[]);
 
     %normalize the data to have zero mean and unit variance
 %     human_expression = human_expression - repmat(mean(human_expression,2),1,size(human_expression,2) );
@@ -29,9 +29,16 @@ function anovaMain(startIndex, finishIndex)
 %     developing_expression = developing_expression - repmat(mean(developing_expression,2),1,size(developing_expression,2) );
 %     developing_expression = developing_expression ./ repmat( std(developing_expression,0,2),1,size(developing_expression,2) );
     %-----------------------------------------------------%
-
-    anovaScoresForHuman6 = computeAnova(human_expression, human_gross_region_vec);
-    correctedAnova_human6 = mafdr(anovaScoresForHuman6, 'BHFDR', true);
+    
+    num_subjects  = size(human_samples2subjects,2);
+    num_genes = size(human_expression,2);
+    anovaScoresForHuman6 = nan(num_genes, num_subjects);
+    correctedAnova_human6 = nan(num_genes, num_subjects);
+    for i = 1:num_subjects
+        current_subject_samples = human_samples2subjects(:,i);
+        anovaScoresForHuman6(:,i) = computeAnova(human_expression(current_subject_samples,:) , human_gross_region_vec(current_subject_samples) );
+        correctedAnova_human6(:,i) = mafdr( anovaScoresForHuman6(:,i), 'BHFDR', true);
+    end
     geneHasFoldChangeLargerThanX_human6 = findMoreThan2Folds(human_expression, human_gross_region_vec);    
     
     anovaScoresForGenesDeveloping = computeAnova(developing_expression, developing_gross_region_vec);

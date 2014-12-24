@@ -208,6 +208,7 @@ function drawContours()
     contour(X,Y,Z,50);
     hold off;
 end
+
 function scatterWithString(xAxis, yAxis, strings, xtitle, ytitle, overalltitle)
     figure;
     scatter(xAxis, yAxis,'.');

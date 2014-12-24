@@ -19,9 +19,11 @@ physicalLocation = [];
         [expression, gross_region_vec, gene_info, samples2subjects, gross_structures_names] = load_kang_cortex(parms);
     case 'kangCortexAllRegions', 
         [expression, gross_region_vec, gene_info, samples2subjects, gross_structures_names] = load_kang_all_regions(parms,'cortex');
-      case 'mouse', 
+    case 'mouse', 
         [expression, gross_region_vec, gene_info, samples2subjects, gross_structures_names] = load_mouse(parms);
-      case 'brainspan',
+    case 'zapalaMouse', 
+        [expression, gross_region_vec, gene_info, samples2subjects, gross_structures_names] = load_zapala_mouse(parms);
+    case 'brainspan',
         [expression, gross_region_vec, gene_info, samples2subjects, gross_structures_names] = load_brainspan(parms);
     end
 
@@ -140,6 +142,46 @@ function  [expression, gross_region_vec, gene_info,samples2subjects,gross_struct
     physicalLocation = local_physicalLocation(relevant_samples,:);
 end
 
+function [expression, gross_region_vec, gene_info, samples2subjects, gross_structures_names] = load_zapala_mouse(parms)
+
+    fprintf('zapala mouse: loading data from disk\n');
+    fullname = '/cortex/data/microarray/mouse/Zapala_2005/GSE3594-Zapala-2005.mat';
+    x = load(fullname);
+    
+    % === do some filtering on the samples
+    regions_of_intresets = {'Amygdala';'Bed nucleus of the stria terminalis';'Cerebellum';'Isocortex';'Dentate Gyrus';'Entorhinal Cortex';'Hippocampus';'Hippocampus CA1';'Hippocampus CA3';'Hypothalamus';'Inferior Colliculi';'Medulla';'Thalamus';'Motor Cortex';'Olfactory Bulbs';'Perirhinal Cortex';'Pons';'Striatum';'Superior Colliculi'};
+    regions_not_included = {'Adrenal';'Brown Adipose Tissue';'Choroid Plexus';'Heart';'Kidney';'Liver';'Muscle';'PAG';'Pituitary';'Retina';'Spinal Cord';'Spleen';'Testes';'Thymus';'White Adipose Tissue'};
+    % === done with the filtering
+    
+    expression = x.gene_expression_data;
+
+    gene_info.gene_symbols = x.gene_symbol;
+    gene_info.entrez_ids = x.entrez;
+    gene_info.gene_full_name = x.gene_title;
+    gene_info.probe_id = x.gpl_probe_id;
+        
+    gross_structures_names = regions_of_intresets;
+    
+    % Change the name of BNST to 'Bed nucleus of the stria terminalis'
+    sample_sources = x.sample_sources;
+    sample_sources(ismember(sample_sources,'BNST') ) = {'Bed nucleus of the stria terminalis'};
+    sample_sources(ismember(sample_sources,'Midbrain-Thalamus') ) = {'Thalamus'};
+    sample_sources(ismember(sample_sources,'Midbrain-thalamus') ) = {'Thalamus'};
+    sample_sources(ismember(sample_sources,'Cortex') ) = {'Isocortex'};
+
+    
+    [~ ,gross_region_vec] = ismember(sample_sources, gross_structures_names);
+    non_relevent_samples = gross_region_vec == 0;
+    gross_region_vec( non_relevent_samples ) = [];
+    expression(:, non_relevent_samples) = [];
+    
+    samples2subjects = ones(size(gross_region_vec)); % the mouse does not have different subjects;
+    
+    fprintf('Zapala mouse: loading data from disk\n');
+    
+
+
+end
 % ===========================================================
 function  [expression, gross_region_vec, gene_info, samples2subjects,gross_structures_names] = load_mouse(parms)
 % 
@@ -256,8 +298,10 @@ function  [expression, gross_region_vec,gene_info,samples2subjects,gross_structu
     gene_info = local_gene_info;
     gross_structures_names = local_grossStructures;
     
-    samples2subjects = NaN;
-
+    [~,~,subjectId] = unique(x.subject_id);
+    samples2subjects = logical(full(sparse(1:length(subjectId) , subjectId, ones(size(subjectId)) ) ));
+    samples2subjects = samples2subjects(relevent_samples,:);
+    samples2subjects = samples2subjects(:, any(samples2subjects,1) ); %remove all subjects which does not have any samples representing them.
 end
 
 function  [expression, gross_region_vec,gene_info,samples2subjects,gross_structures_names] = load_kang_all_regions(parms,region_subset)
@@ -309,7 +353,11 @@ function  [expression, gross_region_vec,gene_info,samples2subjects,gross_structu
     gene_info.entrez_ids = x.entrez;
 
     gross_region_vec = gross_region_vec(:);
-    samples2subjects = NaN;
+    
+    [~,~,subjectId] = unique(x.subject_id);
+    samples2subjects = logical(full(sparse(1:length(subjectId) , subjectId, ones(size(subjectId)) ) ));
+    samples2subjects = samples2subjects(relevent_samples,:);
+    samples2subjects = samples2subjects(:, any(samples2subjects,1) ); %remove all subjects which does not have any samples representing them.
 
 end
 
@@ -372,7 +420,10 @@ function  [expression, gross_region_vec,gene_info,samples2subjects,gross_structu
     gene_info = local_gene_info;
     gross_structures_names = local_grossStructures;
     
-    samples2subjects = NaN;
+    [~,~,subjectId] = unique(x.subject_id);
+    samples2subjects = logical(full(sparse(1:length(subjectId) , subjectId, ones(size(subjectId)) ) ));
+    samples2subjects = samples2subjects(relevent_samples,:);
+    samples2subjects = samples2subjects(:, any(samples2subjects,1) ); %remove all subjects which does not have any samples representing them.
 
 end
 

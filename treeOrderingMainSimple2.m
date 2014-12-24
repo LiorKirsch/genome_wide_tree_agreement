@@ -21,9 +21,14 @@ function treeOrderingMainSimple(startIndex, finishIndex)
 %     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kang',[]);
 %     fileName = 'results/simpleMeasurementGrossRegions';
 % 
+%     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6AllRegions',[]);
+%     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangAllRegions',[]);
+%     fileName = 'results/simpleMeasurementAllRegions';
+
     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6AllRegions',[]);
-    [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangAllRegions',[]);
-    fileName = 'results/simpleMeasurementAllRegions';
+    [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('zapalaMouse',[]);
+    fileName = 'results/simpleMeasurementAllRegionsHumanZaplaMouse';
+    humanOntologyV2 = build_zapala_ontlotgy();
 
     
 %     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6',[]);
@@ -50,11 +55,15 @@ function treeOrderingMainSimple(startIndex, finishIndex)
     medianGeneIndex = 942;   %not norm - COX7C
     medianGeneIndex = 18225; %Norm - LCE1E
     neurod1GeneIndex = find(strcmp('NEUROD1', human_gene_info.gene_symbols)); 
+    fezf2GeneIndex = find(strcmp('FEZF2', human_gene_info.gene_symbols)); 
 
 %     if any(strcmp(developing_gross_region_names, 'Hippocampus'))
 %         developing_gross_region_names{ strcmp(developing_gross_region_names, 'Hippocampus') } = 'hippocampal formation';
 %     end
-    translated_developing_gross_region_names = translate_kang_region_names_to_ABA(developing_gross_region_names);
+
+    % ============= translate kang regions to ABA ========
+%     translated_developing_gross_region_names = translate_kang_region_names_to_ABA(developing_gross_region_names);
+    translated_developing_gross_region_names = developing_gross_region_names;
     
     [~,gross_region_indices_in_ontology] = ismember(human_gross_region_names, humanOntology.structureLabels(:,4) );
     [~,gross_developing_region_indices_in_ontology] = ismember(translated_developing_gross_region_names, humanOntologyV2.structureLabels(:,4) );
@@ -72,9 +81,15 @@ function treeOrderingMainSimple(startIndex, finishIndex)
     drawTheValuesOfGene(neurod1GeneIndex, human_expression, samplesTreeDistance, human_gene_info);
 %     drawTheValuesOfGene(medianGeneIndex, human_expression, samplesTreeDistance, human_gene_info);
    
-    [BRO_score_for_gene_average,~] = compareExpressionToDistanceMetric(mean(human_expression,2) , samplesTreeDistance,startIndex, finishIndex);
+%     fprintf('BRO for average expression of genes, ');
+%     [BRO_score_for_gene_average,~] = compareExpressionToDistanceMetric(mean(human_expression,2) , samplesTreeDistance,startIndex, finishIndex);
+%     fprintf('BRO for fezf2, ');
+%     [BRO_score_for_gene_fezf2,random_BRO_score_for_gene_fezf2] = compareExpressionToDistanceMetric( human_expression(:,fezf2GeneIndex) , samplesTreeDistance,startIndex, finishIndex);
+%     figure('Name','FezF perm dist'); hold on; hist(random_BRO_score_for_gene_fezf2,100) ;stem(BRO_score_for_gene_fezf2, 10,'r'); legend('fezf2 permuted','fezf2');  hold off;
     
+    fprintf('BRO score Human6, ');
     [human6Results,human6RandomResults] = compareExpressionToDistanceMetric(human_expression , samplesTreeDistance,startIndex, finishIndex);
+    fprintf('BRO score Kang, ');
     [brainspanResults,brainspanRandomResults] = compareExpressionToDistanceMetric(developing_expression, samplesDevelopingTreeDistance ,startIndex, finishIndex);
 
     human6PhysicalResults = nan(size(human6Results));
@@ -156,7 +171,8 @@ function [result, random_result] = compareExpressionToDistanceMetric( human_expr
     
     rand('state', 1221);
     
-    repeat_random = 100;
+    repeat_random = 1000;
+    numberPerBatch = 100;
     randomPerm = nan(numberOfSamples , repeat_random);
     for i = 1:repeat_random
         randomPerm(:,i) = randperm(numberOfSamples);
@@ -164,61 +180,77 @@ function [result, random_result] = compareExpressionToDistanceMetric( human_expr
     random_human_expression = human_expression(randperm(numberOfSamples),:);
     
     
-
     onlyUpperTri = triu(true(numberOfSamples,numberOfSamples),1 );
     onlyUpperDistanceMatrix = distancesMatrix(onlyUpperTri);
+    tiedrank_treeDistance = tiedrank( onlyUpperDistanceMatrix);    
     
-    onlyUpperRandomDistanceMatrix =  nan(length(onlyUpperDistanceMatrix) ,repeat_random,'single');
-    for i = 1:repeat_random
-        randomDistanceMatrix = distancesMatrix( randomPerm(:,i), randomPerm(:,i) );
-        onlyUpperRandomDistanceMatrix(:,i) = randomDistanceMatrix(onlyUpperTri);
-    end
-    
-    tiedrank_randomTreeDistance = tiedrank( onlyUpperRandomDistanceMatrix);
-    tiedrank_treeDistance = tiedrank( onlyUpperDistanceMatrix);
-    
-  
-    [result, random_result] = calcCorrInForAllGenes(human_expression, tiedrank_treeDistance, tiedrank_randomTreeDistance, startIndex, finishIndex);
-
+    tiedrank_treeFullDistance = zeros( size(distancesMatrix) );
+    tiedrank_treeFullDistance(onlyUpperTri) = tiedrank_treeDistance;  
+    tiedrank_treeFullDistance = tiedrank_treeFullDistance + tiedrank_treeFullDistance';
     
     
-end
-
-function [result, random_result] = calcCorrInForAllGenes(human_expression, tiedrank_treeDistance, tiedrank_randomTreeDistance, startIndex, finishIndex)
+    result = calcCorrInForAllGenes(human_expression, tiedrank_treeDistance, startIndex, finishIndex);
     
-    [numberOfSamples, numberOfGenes] = size(human_expression);
-    repeat_random = size(tiedrank_randomTreeDistance,2);
-    onlyUpperTri = triu(true(numberOfSamples,numberOfSamples),1 );
-    numberPerSlice = 25;
-    
-    result = nan(numberOfGenes,1);
     random_result = nan(numberOfGenes,repeat_random);
     
  
-    lastIndex = min(finishIndex, numberOfGenes);
     fprintf('finished preprocessing, entering gene loop ----- ');
     fprintf('progress:    ');
     
-    indicesForRandom = round(linspace(1,repeat_random,round(repeat_random/numberPerSlice) ));
+    indicesForRandom = round(linspace(1,repeat_random,round(repeat_random/numberPerBatch) +1 ));
 
     for j = 1:(length(indicesForRandom) -1)
-        curr_random_result = nan(numberOfGenes,(1+ indicesForRandom(j+1) - indicesForRandom(j)) ) ;
-        sliced_tiedrank_randomTreeDistance = tiedrank_randomTreeDistance(:, indicesForRandom(j): indicesForRandom(j+1));
+        batchFirstIndex = indicesForRandom(j);
+        batchLastIndex = indicesForRandom(j+1);
+        batchSize = (1+ batchLastIndex - batchFirstIndex);
+        onlyUpperRandomDistanceMatrix =  nan(length(onlyUpperDistanceMatrix) ,batchSize);
+        tiedrank_randomTreeDistance =  nan(length(onlyUpperDistanceMatrix) ,batchSize);
         
-        parfor i = startIndex: lastIndex
-            current_gene_expression = human_expression(:,i);
-            expression_distance_matrix = squareform( pdist(current_gene_expression,'euclidean') );
-            onlyUpperExpressionMatrix = expression_distance_matrix(onlyUpperTri);
-            tiedrank_expression = tiedrank(onlyUpperExpressionMatrix);
-%             tiedrank_expression = single( tiedrank_expression) ;
-            result(i) = corr(tiedrank_expression, tiedrank_treeDistance , 'type','Pearson');
-            curr_random_result(i,:) = corr(tiedrank_expression, sliced_tiedrank_randomTreeDistance , 'type','Pearson');
-
+%         for m = 1:batchSize
+%             currentRandIndex = m + batchFirstIndex -1;
+%             currentPerm = randomPerm(:,currentRandIndex);
+%             randomDistanceMatrix = distancesMatrix( currentPerm, currentPerm );
+%             onlyUpperRandomDistanceMatrix(:,m) = randomDistanceMatrix(onlyUpperTri);
+%         end
+%         tiedrank_randomTreeDistance = tiedrank( onlyUpperRandomDistanceMatrix);
+        
+        for m = 1:batchSize
+            currentRandIndex = m + batchFirstIndex -1;
+            currentPerm = randomPerm(:,currentRandIndex);
+            permTiedRankDistances = tiedrank_treeFullDistance( currentPerm, currentPerm );
+            tiedrank_randomTreeDistance(:,m) = permTiedRankDistances(onlyUpperTri);
         end
+
+        curr_random_result = calcCorrInForAllGenes(human_expression, tiedrank_randomTreeDistance, startIndex, finishIndex);
+    
         random_result(:, indicesForRandom(j): indicesForRandom(j+1))  = curr_random_result;
         fprintf( '\b\b\b%2d%%', round(j/(length(indicesForRandom) -1)*100) );
-    end
+        
+    end 
     fprintf('\n');
+    
+end
+
+function result = calcCorrInForAllGenes(human_expression, tiedrank_treeDistance, startIndex, finishIndex)
+    
+    [numberOfSamples, numberOfGenes] = size(human_expression);
+    repeats = size(tiedrank_treeDistance,2);
+    onlyUpperTri = triu(true(numberOfSamples,numberOfSamples),1 );
+     
+    result = nan(numberOfGenes,repeats);
+    
+ 
+    lastIndex = min(finishIndex, numberOfGenes);
+    
+    parfor i = startIndex: lastIndex
+        current_gene_expression = human_expression(:,i);
+        expression_distance_matrix = squareform( pdist(current_gene_expression,'euclidean') );
+        onlyUpperExpressionMatrix = expression_distance_matrix(onlyUpperTri);
+        tiedrank_expression = tiedrank(onlyUpperExpressionMatrix);
+%             tiedrank_expression = single( tiedrank_expression) ;
+        result(i,:) = corr(tiedrank_expression, tiedrank_treeDistance , 'type','Pearson');
+    end
+
 end
 
 function samplesDistance = getSamplesDistance(sample_gross_ind, distance_matrix)

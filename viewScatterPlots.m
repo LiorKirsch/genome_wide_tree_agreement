@@ -39,14 +39,26 @@ ylimit = [0, 0.25] ; % full tree
 % load('simpleMeasurementAllTreePar.mat');
 % load('simpleMeasurementAllTreeNormPar.mat');
 
-load('simpleMeasurementAllRegionsPar.mat');
+% load('simpleMeasurementAllRegionsPar.mat');
 % load('simpleMeasurement16RegionsPar.mat');
 % load('simpleMeasurementAllRegionsCortexPar.mat');
 % load('simpleMeasurementCortexGrossPar.mat');
 
+% data_results = load('results/human6GrossRegions-1-30000.mat');
+data_results = load('results/human6AllRegions-1-30000.mat');
+human6Results = data_results.results;
+human6RandomResults = data_results.randomResults;
+human_gene_info = data_results.gene_info;
+
+data_results = load('results/zapalaMouse-1-30000.mat');
+second_dataset_results = data_results.results;
+second_dataset_random_results = data_results.randomResults;
+second_dataset_genes_info = data_results.gene_info;
+
+% homologous_genes_human6_zapala(human_gene_info, second_dataset_genes_info);
 
 %load('kang_genes_2_fold.mat');
-%error = drawVenn(getIndicesLargerThanThreshold(brainspanResults, brainspanRandomResults, 0.01, 'right') , geneHasFoldChangeLargerThanX_dev_all_ages', correctedAnova_developing  < 0.01, 0.5);
+%error = drawVenn(getIndicesLargerThanThreshold(second_dataset_results, second_dataset_random_results, 0.01, 'right') , geneHasFoldChangeLargerThanX_dev_all_ages', correctedAnova_developing  < 0.01, 0.5);
 %error = drawVenn(getIndicesLargerThanThreshold(human6Results, human6RandomResults, 0.01, 'right') , geneHasFoldChangeLargerThanX_human6', correctedAnova_human6  < 0.01, 0.5);
 [~,sortInd] = sort(human6Results); medianIndex = sortInd(round(length(sortInd)/2) );
 fprintf('%s ( %d ) is the median\n', human_gene_info.gene_symbols{medianIndex}, medianIndex);
@@ -55,7 +67,7 @@ fprintf('%s ( %d ) is the median\n', human_gene_info.gene_symbols{medianIndex}, 
 % empirical_pvalue_human6 = getEmpiricalPvalues(human6Results, human6RandomResults);
 % empirical_pvalue_human6 = mafdr(empirical_pvalue_human6, 'BHFDR', true);
 % fprintf('all genes: %d / %d  (%d%%)\n', sum(empirical_pvalue_human6 < 0.01) , length(empirical_pvalue_human6) ,floor(sum(empirical_pvalue_human6< 0.01) / length(empirical_pvalue_human6)*100) );
-% empirical_pvalue_developing = getEmpiricalPvalues(brainspanResults, brainspanRandomResults);
+% empirical_pvalue_developing = getEmpiricalPvalues(second_dataset_results, second_dataset_random_results);
 % empirical_pvalue_developing = mafdr(empirical_pvalue_developing, 'BHFDR', true);
 % fprintf('developing: %d / %d  (%d%%)\n', sum(empirical_pvalue_developing < 0.01) , length(empirical_pvalue_developing) ,floor(sum(empirical_pvalue_developing< 0.01) / length(empirical_pvalue_developing)*100) );
 %========================================================================
@@ -115,7 +127,11 @@ soxGene.symbol = human_gene_info.gene_symbols(indInList);
 soxGene.entrez = human_gene_info.entrez_ids(indInList);
 [soxGene.scores, soxGene.symbols, soxGene.entrez] = addScoresToSubset(human6Results, human_gene_info, soxGene.entrez, soxGene.symbol);
 
+fprintf('human6: ');
 moreThenXPercent(human6Results, human6RandomResults, 0.99);
+
+fprintf('second dataset: ');
+moreThenXPercent(second_dataset_results, second_dataset_random_results, 0.99);
 
 
 
@@ -139,101 +155,101 @@ dopaminAndSertoninGene.entrez = human_gene_info.entrez_ids(indInList);
 
 
 
-
-figure('name','Scatter with random');
-hold on;
-scatterDots = scatterScores(human6Results, human_gene_info, brainspanResults , developing_genes_info);
-randomScatterDots = scatterScores(human6RandomResults, human_gene_info, brainspanRandomResults , developing_genes_info);
-set(randomScatterDots, 'CData',random_samples_color);
-xlabel('BRO-agreement (ABA6-2013)', 'fontsize',20); ylabel('BRO-agreement (Kang-2011)', 'fontsize',20);
-hleg = legend('All','Random');  set(hleg,'Location','Northwest'); legend('boxoff');    set(hleg,'FontSize',20); 
-set(gca,'box','off');  
-set(gca,'ytick',ytick); set(gca,'xtick',xtick);
-title('');
-redoScatterImage(xlimit);
-saveFigure(gcf, 'scatter_random.png', 'png');
-saveFigure(gcf, 'scatter_random.tiff', 'tiff');
-saveFigure(gcf, 'scatter_random', 'eps');
-
-figure('name','Cell type scatter');
-hold on;
-scatterDots = scatterScores(human6Results, human_gene_info, brainspanResults , developing_genes_info);
-scatterSubsetScores(human6Results, human_gene_info, brainspanResults , developing_genes_info, cahoy_human.oligo_human_entrez, cahoy_human.oligo_human_hsbc, oligo_color);
-scatterSubsetScores(human6Results, human_gene_info, brainspanResults , developing_genes_info, cahoy_human.astro_human_entrez, cahoy_human.astro_human_hsbc, astro_color);
-scatterSubsetScores(human6Results, human_gene_info, brainspanResults , developing_genes_info, cahoy_human.neurons_human_entrez, cahoy_human.neurons_human_hsbc, neurons_color);
-
-xlabel('BRO-agreement (ABA6-2013)', 'fontsize',20); ylabel('BRO-agreement (Kang-2011)', 'fontsize',20);
-hleg = legend('All','Oligodendrocytes','Astrocytes','Neurons');  set(hleg,'Location','Northwest'); legend('boxoff');    set(hleg,'FontSize',20); 
-set(gca,'box','off');  
-set(gca,'ytick',ytick); set(gca,'xtick',xtick);
-title('');
-redoScatterImage(xlimit);
-saveFigure(gcf, 'scatter_cellType.png', 'png');
-saveFigure(gcf, 'scatter_cellType.tiff', 'tiff');
-saveFigure(gcf, 'scatter_cellType.eps', 'eps');
-
-figure('name','Housekeeping scatter');
-scatterDots = scatterScores(human6Results, human_gene_info, brainspanResults , developing_genes_info);
-xlabel('BRO-agreement (ABA6-2013)', 'fontsize',20); ylabel('BRO-agreement (Kang-2011)', 'fontsize',20);
-hold on;
-scatterSubsetScores(human6Results, human_gene_info, brainspanResults , developing_genes_info, housekeeping.entrez ,housekeeping.symbol, house_keeping_color );
-hleg = legend('All','Housekeeping');  set(hleg,'Location','Northwest'); legend('boxoff');  set(hleg,'FontSize',20);   
-set(gca,'box','off');  
-set(gca,'ytick',ytick); set(gca,'xtick',xtick);
-title('');
-redoScatterImage(xlimit);
-saveFigure(gcf, 'scatter_house.png', 'png');
-saveFigure(gcf, 'scatter_house.tiff', 'tiff');
-saveFigure(gcf, 'scatter_house.eps', 'eps');
-
-figure('name','Hox and Axon guidance scatter');
-scatterDots = scatterScores(human6Results, human_gene_info, brainspanResults , developing_genes_info);
-set(scatterDots,'SizeData',40);
-xlabel('BRO-agreement (ABA6-2013)', 'fontsize',20); ylabel('BRO-agreement (Kang-2011)', 'fontsize',20);
-hold on;
-scatterSubsetScores(human6Results, human_gene_info, brainspanResults , developing_genes_info, nan(size(axon_guidance.symbol )) ,axon_guidance.symbol , axon_guidance_color );
-scatterSubsetScores(human6Results, human_gene_info, brainspanResults , developing_genes_info, nan(size(hoxGenes.symbol )) ,hoxGenes.symbol , hox_color );
-scatterSubsetScores(human6Results, human_gene_info, brainspanResults , developing_genes_info, nan ,paxGeneSymbol , pax_color );
-% scatterSubsetScores(human6Results, human_gene_info, brainspanResults , developing_genes_info, soxGene.entrez ,{'SOX2'} , [1 0 0] );
-hleg = legend('All','Axon guidance','Hox family','Pax family');  set(hleg,'Location','Northwest'); legend('boxoff');     set(hleg,'FontSize',20);
-set(gca,'box','off');  
-set(gca,'ytick',ytick); set(gca,'xtick',xtick);
-title('');
-redoScatterImage(xlimit);
-saveFigure(gcf, 'scatter_axon.png', 'png');
-saveFigure(gcf, 'scatter_axon.tiff', 'tiff');
-saveFigure(gcf, 'scatter_axon', 'eps');
-
-
-
-figure('name','Serotonin scatter');
-scatterDots = scatterScores(human6Results, human_gene_info, brainspanResults , developing_genes_info);
-set(scatterDots,'SizeData',40);
-xlabel('BRO-agreement (ABA6-2013)', 'fontsize',20); ylabel('BRO-agreement (Kang-2011)', 'fontsize',20);
-hold on;
-scatterSubsetScores(human6Results, human_gene_info, brainspanResults , developing_genes_info, nan ,dopaminAndSertoninGeneSymbol , pax_color ,false);
-scatterSubsetScores(human6Results, human_gene_info, brainspanResults , developing_genes_info, nan(size(serotoninGeneSymbol )) ,serotoninGeneSymbol , axon_guidance_color ,false);
-scatterSubsetScores(human6Results, human_gene_info, brainspanResults , developing_genes_info, nan(size(dopaminGeneSymbol )) ,dopaminGeneSymbol , hox_color ,false);
-hleg = legend('All','Serotonin & Dopamine', 'Serotonin','Dopamine');  set(hleg,'Location','Northwest'); legend('boxoff');     set(hleg,'FontSize',20);
-set(gca,'box','off');  
-set(gca,'ytick',ytick); set(gca,'xtick',xtick);
-title('');
-redoScatterImage(xlimit);
-saveFigure(gcf, 'scatter_serotonin.png', 'png');
-saveFigure(gcf, 'scatter_serotonin.tiff', 'tiff');
-saveFigure(gcf, 'scatter_serotonin', 'eps');
-
+% 
+% figure('name','Scatter with random');
+% hold on;
+% scatterDots = scatterScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info);
+% randomScatterDots = scatterScores(human6RandomResults, human_gene_info, second_dataset_random_results , second_dataset_genes_info);
+% set(randomScatterDots, 'CData',random_samples_color);
+% xlabel('BRO-agreement (ABA6-2013)', 'fontsize',20); ylabel('BRO-agreement (Kang-2011)', 'fontsize',20);
+% hleg = legend('All','Random');  set(hleg,'Location','Northwest'); legend('boxoff');    set(hleg,'FontSize',20); 
+% set(gca,'box','off');  
+% set(gca,'ytick',ytick); set(gca,'xtick',xtick);
+% title('');
+% redoScatterImage(xlimit);
+% saveFigure(gcf, 'scatter_random.png', 'png');
+% saveFigure(gcf, 'scatter_random.tiff', 'tiff');
+% saveFigure(gcf, 'scatter_random', 'eps');
+% 
+% figure('name','Cell type scatter');
+% hold on;
+% scatterDots = scatterScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info);
+% scatterSubsetScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info, cahoy_human.oligo_human_entrez, cahoy_human.oligo_human_hsbc, oligo_color);
+% scatterSubsetScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info, cahoy_human.astro_human_entrez, cahoy_human.astro_human_hsbc, astro_color);
+% scatterSubsetScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info, cahoy_human.neurons_human_entrez, cahoy_human.neurons_human_hsbc, neurons_color);
+% 
+% xlabel('BRO-agreement (ABA6-2013)', 'fontsize',20); ylabel('BRO-agreement (Kang-2011)', 'fontsize',20);
+% hleg = legend('All','Oligodendrocytes','Astrocytes','Neurons');  set(hleg,'Location','Northwest'); legend('boxoff');    set(hleg,'FontSize',20); 
+% set(gca,'box','off');  
+% set(gca,'ytick',ytick); set(gca,'xtick',xtick);
+% title('');
+% redoScatterImage(xlimit);
+% saveFigure(gcf, 'scatter_cellType.png', 'png');
+% saveFigure(gcf, 'scatter_cellType.tiff', 'tiff');
+% saveFigure(gcf, 'scatter_cellType.eps', 'eps');
+% 
+% figure('name','Housekeeping scatter');
+% scatterDots = scatterScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info);
+% xlabel('BRO-agreement (ABA6-2013)', 'fontsize',20); ylabel('BRO-agreement (Kang-2011)', 'fontsize',20);
+% hold on;
+% scatterSubsetScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info, housekeeping.entrez ,housekeeping.symbol, house_keeping_color );
+% hleg = legend('All','Housekeeping');  set(hleg,'Location','Northwest'); legend('boxoff');  set(hleg,'FontSize',20);   
+% set(gca,'box','off');  
+% set(gca,'ytick',ytick); set(gca,'xtick',xtick);
+% title('');
+% redoScatterImage(xlimit);
+% saveFigure(gcf, 'scatter_house.png', 'png');
+% saveFigure(gcf, 'scatter_house.tiff', 'tiff');
+% saveFigure(gcf, 'scatter_house.eps', 'eps');
+% 
+% figure('name','Hox and Axon guidance scatter');
+% scatterDots = scatterScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info);
+% set(scatterDots,'SizeData',40);
+% xlabel('BRO-agreement (ABA6-2013)', 'fontsize',20); ylabel('BRO-agreement (Kang-2011)', 'fontsize',20);
+% hold on;
+% scatterSubsetScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info, nan(size(axon_guidance.symbol )) ,axon_guidance.symbol , axon_guidance_color );
+% scatterSubsetScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info, nan(size(hoxGenes.symbol )) ,hoxGenes.symbol , hox_color );
+% scatterSubsetScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info, nan ,paxGeneSymbol , pax_color );
+% % scatterSubsetScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info, soxGene.entrez ,{'SOX2'} , [1 0 0] );
+% hleg = legend('All','Axon guidance','Hox family','Pax family');  set(hleg,'Location','Northwest'); legend('boxoff');     set(hleg,'FontSize',20);
+% set(gca,'box','off');  
+% set(gca,'ytick',ytick); set(gca,'xtick',xtick);
+% title('');
+% redoScatterImage(xlimit);
+% saveFigure(gcf, 'scatter_axon.png', 'png');
+% saveFigure(gcf, 'scatter_axon.tiff', 'tiff');
+% saveFigure(gcf, 'scatter_axon', 'eps');
+% 
+% 
+% 
+% figure('name','Serotonin scatter');
+% scatterDots = scatterScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info);
+% set(scatterDots,'SizeData',40);
+% xlabel('BRO-agreement (ABA6-2013)', 'fontsize',20); ylabel('BRO-agreement (Kang-2011)', 'fontsize',20);
+% hold on;
+% scatterSubsetScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info, nan ,dopaminAndSertoninGeneSymbol , pax_color ,false);
+% scatterSubsetScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info, nan(size(serotoninGeneSymbol )) ,serotoninGeneSymbol , axon_guidance_color ,false);
+% scatterSubsetScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info, nan(size(dopaminGeneSymbol )) ,dopaminGeneSymbol , hox_color ,false);
+% hleg = legend('All','Serotonin & Dopamine', 'Serotonin','Dopamine');  set(hleg,'Location','Northwest'); legend('boxoff');     set(hleg,'FontSize',20);
+% set(gca,'box','off');  
+% set(gca,'ytick',ytick); set(gca,'xtick',xtick);
+% title('');
+% redoScatterImage(xlimit);
+% saveFigure(gcf, 'scatter_serotonin.png', 'png');
+% saveFigure(gcf, 'scatter_serotonin.tiff', 'tiff');
+% saveFigure(gcf, 'scatter_serotonin', 'eps');
+% 
 
 
 % 
 % 
 % figure;
-% scatterScores(human6FlatResults, human_gene_info, brainspanFlatResults , developing_genes_info);
+% scatterScores(human6FlatResults, human_gene_info, brainspanFlatResults , second_dataset_genes_info);
 % xlabel('human6 flat-tree scores', 'fontsize',20); ylabel('kang flat-tree scores', 'fontsize',20);
 
 
 % compareDistributions(human6Results, human6RandomResults(:), 'all human6', 'randomHuman6');
-% compareDistributions( brainspanResults,brainspanRandomResults(:), 'all kang','randomKang');
+% compareDistributions( second_dataset_results,second_dataset_random_results(:), 'all kang','randomKang');
 compareDistributions(cahoy_human_subset.scores_neurons, human6Results, 'neurons','all human6');
 compareDistributions(cahoy_human_subset.scores_oligo, human6Results,   'oligo', 'all human6');
 compareDistributions(cahoy_human_subset.scores_astro, human6Results,  'astro', 'all human6');
@@ -255,7 +271,7 @@ saveFigure(gcf, 'dist_random.tiff', 'tiff');
 saveFigure(gcf, 'dist_random', 'eps');
 
 figure('name','Kang distribution');  
-ploth = displayMultiDist({brainspanResults,brainspanRandomResults}, 'BRO-agreement (Kang-2011)',{'All','Random'} ,xlimit);
+ploth = displayMultiDist({second_dataset_results,second_dataset_random_results}, 'BRO-agreement (Kang-2011)',{'All','Random'} ,xlimit);
 set(ploth(2), 'Color', random_samples_color );  set(ploth,'LineWidth',  3 );
 redoDistImage(xlimit); set(ploth,'LineWidth',  3 );
 set(gca,'ytick',[0:0.2:1]);

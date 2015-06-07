@@ -2,108 +2,112 @@ function treeOrderingMainSimple(startIndex, finishIndex)
 
     addpath('/home/lab/gal/develop/matlab');
     addpath('~/Projects/general use functions/');
-
-    
     addpath('/home/lab/lior/Projects/buildStructureOntology/');
-    
-    % Load the tree
-    filename = '/home/lab/lior/Projects/buildStructureOntology/humanOntologyObject.mat';
-    load(filename, 'humanOntology'); %#ok
-    
-    % Load the tree
-    filename = '/home/lab/lior/Projects/buildStructureOntology/humanOntologyObjectV2.mat';
-    humanOntologyV2 = load(filename, 'humanOntology'); %#ok
-    humanOntologyV2 = humanOntologyV2.humanOntology;
-    
+   
     kangAges = {'4-8pcw', '8-10pcw', '10-13pcw', '13-16pcw', '16-19pcw', '19-24pcw', '24-38pcw', '0-6mo', '6-12mo', '1-6y', '6-12y', '12-20y', '20-40y', '40-60y', '60+y'};
 
-%     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6',[]);
-%     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kang',[]);
-%     fileName = 'results/simpleMeasurementGrossRegions';
-% 
-%     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6AllRegions',[]);
-%     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangAllRegions',[]);
-%     fileName = 'results/simpleMeasurementAllRegions';
 
-    [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6AllRegions',[]);
-    [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('zapalaMouse',[]);
-    fileName = 'results/simpleMeasurementAllRegionsHumanZaplaMouse';
-    humanOntologyV2 = build_zapala_ontlotgy();
+% dataset_name = 'human6AllRegions'; % ======= human6 - all regions =======
+% dataset_name = 'human6GrossRegions'; % ======= human6 - gross regions =======
+% dataset_name = 'human6Cortex'; % ======= human6 - cortex gross regions=======
+% dataset_name = 'human6CortexAllRegions'; % ======= human6 - cortex all regions=======
 
-    
-%     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6',[]);
-%     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangAllRegions',[]);
-%     fileName = 'results/simpleMeasurement16Regions';
-    
-%     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6Cortex',[]);
-%     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangCortex',[]);
-%     fileName = 'results/simpleMeasurementGrossCortexRegions';
-    
-%     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6CortexAllRegions', []);
-%     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangCortexAllRegions',[]);
-%     fileName = 'results/simpleMeasurementAllCortexRegions';
+% dataset_name = 'kangAllRegions'; % ======= Kang - all regions =======
+% dataset_name = 'kangCortexAllRegions'; % ======= Kang - cortex all regions =======
+% dataset_name = 'kangGrossRegions'; % ======= Kang - gross regions =======
+% dataset_name = 'kangCortex'; % ======= Kang - cortex gross regions =======
+
+dataset_name = 'zapalaMouse'; % ======= Zapala mouse =======
 
 
-    
-    %normalize the data to have zero mean and unit variance
-%     human_expression = human_expression - repmat(mean(human_expression,2),1,size(human_expression,2) );
-%     human_expression = human_expression ./ repmat( std(human_expression,0,2),1,size(human_expression,2) );
-%     developing_expression = developing_expression - repmat(mean(developing_expression,2),1,size(developing_expression,2) );
-%     developing_expression = developing_expression ./ repmat( std(developing_expression,0,2),1,size(developing_expression,2) );
+fileName = fullfile('results',dataset_name);
+[expression, gross_region_vec, gene_info, samples2subjects, gross_region_names, physicalLocation] = load_expression_and_regions(dataset_name,[]);
+
+
+% % ------- homology groups insead of genes -------
+% addpath('/cortex/code/matlab/homologous_gene_mapping/');
+% [~, ~, human_gene_info, ~, ~, ~] = load_expression_and_regions('human6AllRegions',[]);
+% [~, ~, mouse_gene_info, ~, ~, ~] = load_expression_and_regions('zapalaMouse',[]);
+% [gene_to_group_matrix_mouse, gene_to_group_matrix_human, homologous_group_id] = gene_to_homolog_group('mouse_laboratory','human', mouse_gene_info.gene_symbols, 'symbol',human_gene_info.gene_symbols,'symbol',false);
+% switch dataset_name
+%     case {'human6AllRegions','human6GrossRegions','human6Cortex','human6CortexAllRegions','kangAllRegions','kangCortexAllRegions','kangGrossRegions','kangCortex'}
+%         expression = get_group_expression(gene_to_group_matrix_human, expression);
+%     case 'zapalaMouse'
+%         expression = get_group_expression(gene_to_group_matrix_mouse, expression);
+% end
+% gene_info.gene_symbols = homologous_group_id;
+% gene_info.entrez_ids = homologous_group_id;
+% fileName = [fileName,'_homologs'];
+% expression = single(expression);
+
+
+% -------normalize the data to have zero mean and unit variance-------
+%     expression = expression - repmat(mean(expression,2),1,size(expression,2) );
+%     expression = expression ./ repmat( std(expression,0,2),1,size(expression,2) );
     %-----------------------------------------------------%
 
-    medianGeneIndex = 942;   %not norm - COX7C
-    medianGeneIndex = 18225; %Norm - LCE1E
-    neurod1GeneIndex = find(strcmp('NEUROD1', human_gene_info.gene_symbols)); 
-    fezf2GeneIndex = find(strcmp('FEZF2', human_gene_info.gene_symbols)); 
 
-%     if any(strcmp(developing_gross_region_names, 'Hippocampus'))
-%         developing_gross_region_names{ strcmp(developing_gross_region_names, 'Hippocampus') } = 'hippocampal formation';
-%     end
+    % ================== load ontology ==================
+    switch dataset_name
+        case {'human6AllRegions','human6GrossRegions','human6Cortex','human6CortexAllRegions'}
+            selected_ontology = load('/home/lab/lior/Projects/buildStructureOntology/humanOntologyObject.mat', 'humanOntology'); 
+            selected_ontology = selected_ontology.humanOntology;
+            
+        case {'kangAllRegions','kangCortexAllRegions','kangGrossRegions','kangCortex'}
+            selected_ontology = load('/home/lab/lior/Projects/buildStructureOntology/humanOntologyObjectV2.mat', 'humanOntology'); 
+            selected_ontology = selected_ontology.humanOntology;
+
+        case 'zapalaMouse'
+            selected_ontology = build_zapala_ontlotgy();
+    end
+
 
     % ============= translate kang regions to ABA ========
-%     translated_developing_gross_region_names = translate_kang_region_names_to_ABA(developing_gross_region_names);
-    translated_developing_gross_region_names = developing_gross_region_names;
-    
-    [~,gross_region_indices_in_ontology] = ismember(human_gross_region_names, humanOntology.structureLabels(:,4) );
-    [~,gross_developing_region_indices_in_ontology] = ismember(translated_developing_gross_region_names, humanOntologyV2.structureLabels(:,4) );
-    
-    human6TreeDistances = getTreeDistance(humanOntology, gross_region_indices_in_ontology);
-    developingTreeDistances = getTreeDistance(humanOntologyV2, gross_developing_region_indices_in_ontology);
-    human6PhysicalDistances = squareform( pdist(physicalLocation,'euclidean') );
-    
-    samplesTreeDistance = getSamplesDistance(human_gross_region_vec, human6TreeDistances);
-    samplesDevelopingTreeDistance = getSamplesDistance(developing_gross_region_vec, developingTreeDistances);
-    
-    
-    identity_region_mapping = (1:length(human_gross_region_vec))';
+    switch dataset_name
+        case {'kangAllRegions','kangCortexAllRegions'}
+            gross_region_names = translate_kang_region_names_to_ABA(gross_region_names);
+        case {'kangGrossRegions','kangCortex'}
+            gross_region_names{ strcmp(gross_region_names, 'Hippocampus') } = 'hippocampal formation';
+    end
 
-    drawTheValuesOfGene(neurod1GeneIndex, human_expression, samplesTreeDistance, human_gene_info);
-%     drawTheValuesOfGene(medianGeneIndex, human_expression, samplesTreeDistance, human_gene_info);
+    
+    [~,gross_region_indices_in_ontology] = ismember(gross_region_names, selected_ontology.structureLabels(:,4) );
+    
+    treeDistances = getTreeDistance(selected_ontology, gross_region_indices_in_ontology);
+    samplesTreeDistance = getSamplesDistance(gross_region_vec, treeDistances);
+
+%     selecedGeneSymbol = 'NEUROD1'; %'FEZF2','COX7C','LCE1E'
+%     selectedGeneIndex = find(strcmp(selecedGeneSymbol, gene_info.gene_symbols)); 
+%     drawTheValuesOfGene(selectedGeneIndex, expression, samplesTreeDistance, gene_info);
+
    
 %     fprintf('BRO for average expression of genes, ');
-%     [BRO_score_for_gene_average,~] = compareExpressionToDistanceMetric(mean(human_expression,2) , samplesTreeDistance,startIndex, finishIndex);
-%     fprintf('BRO for fezf2, ');
-%     [BRO_score_for_gene_fezf2,random_BRO_score_for_gene_fezf2] = compareExpressionToDistanceMetric( human_expression(:,fezf2GeneIndex) , samplesTreeDistance,startIndex, finishIndex);
-%     figure('Name','FezF perm dist'); hold on; hist(random_BRO_score_for_gene_fezf2,100) ;stem(BRO_score_for_gene_fezf2, 10,'r'); legend('fezf2 permuted','fezf2');  hold off;
+%     [BRO_score_for_gene_average,~] = compareExpressionToDistanceMetric(mean(expression,2) , samplesTreeDistance,startIndex, finishIndex);
+%     fprintf('BRO for %s, ',selecedGeneSymbol);
+%     [BRO_score_for_selected_gene,random_BRO_score_for_selected_gene] = compareExpressionToDistanceMetric( expression(:,selectedGeneIndex) , samplesTreeDistance,startIndex, finishIndex);
+%     figure('Name',sprintf('%s perm dist',selecedGeneSymbol)); hold on; hist(random_BRO_score_for_selected_gene,100) ;stem(BRO_score_for_selected_gene, 10,'r'); legend(sprintf('%s permuted',selecedGeneSymbol),selecedGeneSymbol);  hold off;
     
-    fprintf('BRO score Human6, ');
-    [human6Results,human6RandomResults] = compareExpressionToDistanceMetric(human_expression , samplesTreeDistance,startIndex, finishIndex);
-    fprintf('BRO score Kang, ');
-    [brainspanResults,brainspanRandomResults] = compareExpressionToDistanceMetric(developing_expression, samplesDevelopingTreeDistance ,startIndex, finishIndex);
-
-    human6PhysicalResults = nan(size(human6Results));
-    human6PhysicalRandomResults = nan(size(human6RandomResults));
-%     [human6PhysicalResults,human6PhysicalRandomResults] = compareExpressionToDistanceMetric(human_expression , human6PhysicalDistances,startIndex, finishIndex);
-    
+    fprintf('computing BRO score %s, ', dataset_name);
+    [results,randomResults] = compareExpressionToDistanceMetric(expression , samplesTreeDistance,startIndex, finishIndex);
+   
 
     fileName = sprintf('%s-%d-%d.mat',fileName, startIndex, finishIndex);
     indices = [startIndex, finishIndex];
-    save(fileName, 'human6Results', 'human6RandomResults','human_gene_info','brainspanResults','brainspanRandomResults','developing_genes_info', 'human6PhysicalResults','human6PhysicalRandomResults','indices','-v7.3');
+    save(fileName, 'results', 'randomResults','gene_info','indices','-v7.3');
 end
 
-function [human_expression, human_gross_region_vec, human_samples2subjects, physicalLocation] = drawXsamplesInRandom(numberOfSamples, human_expression, human_gross_region_vec, human_samples2subjects, physicalLocation)
-    [num_samples_human, num_genes] = size(human_expression);
+function group_expression = get_group_expression(gene_to_group_matrix, gene_expression)
+
+    num_of_genes_in_group = sum(gene_to_group_matrix,1);
+    assert( all(num_of_genes_in_group > 0), 'every group should have atleast one gene');
+    
+    group_expression = gene_expression * gene_to_group_matrix;
+    group_expression = group_expression * diag( 1./ num_of_genes_in_group );
+    
+end
+
+function [expression, gross_region_vec, samples2subjects, physicalLocation] = drawXsamplesInRandom(numberOfSamples, expression, gross_region_vec, samples2subjects, physicalLocation)
+    [num_samples_human, num_genes] = size(expression);
     s = RandStream('mt19937ar','Seed','shuffle');
     RandStream.setGlobalStream(s);
     rand_indicies = randperm(num_samples_human);
@@ -112,25 +116,25 @@ function [human_expression, human_gross_region_vec, human_samples2subjects, phys
     selected_samples = false(num_samples_human,1);
     selected_samples(rand_indicies) = true;
     
-    human_expression = human_expression(selected_samples,:);
-    human_samples2subjects = human_samples2subjects(selected_samples,:);
+    expression = expression(selected_samples,:);
+    samples2subjects = samples2subjects(selected_samples,:);
     physicalLocation = physicalLocation(selected_samples,:);
-    human_gross_region_vec = human_gross_region_vec(selected_samples);    
+    gross_region_vec = gross_region_vec(selected_samples);    
 end
 
-function drawTheValuesOfGene(geneIndex, human_expression, distancesMatrix, human_gene_info)
+function drawTheValuesOfGene(geneIndex, expression, distancesMatrix, gene_info)
 
-    [numberOfSamples, numberOfGenes] = size(human_expression);
+    [numberOfSamples, numberOfGenes] = size(expression);
 
     onlyUpperTri = triu(true(numberOfSamples,numberOfSamples),1 );
     onlyUpperDistanceMatrix = distancesMatrix(onlyUpperTri);
 
-    current_gene_expression = human_expression(:,geneIndex);
+    current_gene_expression = expression(:,geneIndex);
     expression_distance_matrix = squareform( pdist(current_gene_expression,'euclidean') );
     onlyUpperExpressionMatrix = expression_distance_matrix(onlyUpperTri);
     
     spearmanScore = corr(onlyUpperExpressionMatrix, onlyUpperDistanceMatrix , 'type','Spearman');
-    geneName = human_gene_info.gene_symbols{geneIndex};
+    geneName = gene_info.gene_symbols{geneIndex};
     randomIndex = randi(length(onlyUpperDistanceMatrix), 10^5,1); % because there are too many dots to draw
     
     createFigure;
@@ -156,28 +160,28 @@ function drawTheValuesOfGene(geneIndex, human_expression, distancesMatrix, human
 
 end
 
-function treeDistances = getTreeDistance(humanOntology, gross_region_indices_in_ontology)
-%     treeDistances = humanOntology.meanDistanceToParent(gross_region_indices_in_ontology,gross_region_indices_in_ontology);
-    treeDistances = humanOntology.unDirectedDistanceMatrix(gross_region_indices_in_ontology,gross_region_indices_in_ontology);
-%   treeDistances = humanOntology.longDistanceToParent(gross_region_indices_in_ontology,gross_region_indices_in_ontology);
-%   treeDistances = humanOntology.shortDistanceToParent(gross_region_indices_in_ontology,gross_region_indices_in_ontology);
+function treeDistances = getTreeDistance(selected_ontology, gross_region_indices_in_ontology)
+%     treeDistances = selected_ontology.meanDistanceToParent(gross_region_indices_in_ontology,gross_region_indices_in_ontology);
+    treeDistances = selected_ontology.unDirectedDistanceMatrix(gross_region_indices_in_ontology,gross_region_indices_in_ontology);
+%   treeDistances = selected_ontology.longDistanceToParent(gross_region_indices_in_ontology,gross_region_indices_in_ontology);
+%   treeDistances = selected_ontology.shortDistanceToParent(gross_region_indices_in_ontology,gross_region_indices_in_ontology);
 end
 
-function [result, random_result] = compareExpressionToDistanceMetric( human_expression, distancesMatrix ,startIndex, finishIndex)
+function [result, random_result] = compareExpressionToDistanceMetric( expression, distancesMatrix ,startIndex, finishIndex)
     
 
     
-    [numberOfSamples, numberOfGenes] = size(human_expression);
+    [numberOfSamples, numberOfGenes] = size(expression);
     
     rand('state', 1221);
     
-    repeat_random = 1000;
-    numberPerBatch = 100;
+    repeat_random = 100;
+    numberPerBatch = repeat_random;
     randomPerm = nan(numberOfSamples , repeat_random);
     for i = 1:repeat_random
         randomPerm(:,i) = randperm(numberOfSamples);
     end
-    random_human_expression = human_expression(randperm(numberOfSamples),:);
+    random_human_expression = expression(randperm(numberOfSamples),:);
     
     
     onlyUpperTri = triu(true(numberOfSamples,numberOfSamples),1 );
@@ -188,8 +192,9 @@ function [result, random_result] = compareExpressionToDistanceMetric( human_expr
     tiedrank_treeFullDistance(onlyUpperTri) = tiedrank_treeDistance;  
     tiedrank_treeFullDistance = tiedrank_treeFullDistance + tiedrank_treeFullDistance';
     
+    tiedrank_treeFullDistance = single(tiedrank_treeFullDistance);
     
-    result = calcCorrInForAllGenes(human_expression, tiedrank_treeDistance, startIndex, finishIndex);
+    result = calcCorrInForAllGenes(expression, tiedrank_treeDistance, startIndex, finishIndex);
     
     random_result = nan(numberOfGenes,repeat_random);
     
@@ -221,7 +226,7 @@ function [result, random_result] = compareExpressionToDistanceMetric( human_expr
             tiedrank_randomTreeDistance(:,m) = permTiedRankDistances(onlyUpperTri);
         end
 
-        curr_random_result = calcCorrInForAllGenes(human_expression, tiedrank_randomTreeDistance, startIndex, finishIndex);
+        curr_random_result = calcCorrInForAllGenes(expression, tiedrank_randomTreeDistance, startIndex, finishIndex);
     
         random_result(:, indicesForRandom(j): indicesForRandom(j+1))  = curr_random_result;
         fprintf( '\b\b\b%2d%%', round(j/(length(indicesForRandom) -1)*100) );
@@ -231,9 +236,9 @@ function [result, random_result] = compareExpressionToDistanceMetric( human_expr
     
 end
 
-function result = calcCorrInForAllGenes(human_expression, tiedrank_treeDistance, startIndex, finishIndex)
+function result = calcCorrInForAllGenes(expression, tiedrank_treeDistance, startIndex, finishIndex)
     
-    [numberOfSamples, numberOfGenes] = size(human_expression);
+    [numberOfSamples, numberOfGenes] = size(expression);
     repeats = size(tiedrank_treeDistance,2);
     onlyUpperTri = triu(true(numberOfSamples,numberOfSamples),1 );
      
@@ -243,7 +248,7 @@ function result = calcCorrInForAllGenes(human_expression, tiedrank_treeDistance,
     lastIndex = min(finishIndex, numberOfGenes);
     
     parfor i = startIndex: lastIndex
-        current_gene_expression = human_expression(:,i);
+        current_gene_expression = expression(:,i);
         expression_distance_matrix = squareform( pdist(current_gene_expression,'euclidean') );
         onlyUpperExpressionMatrix = expression_distance_matrix(onlyUpperTri);
         tiedrank_expression = tiedrank(onlyUpperExpressionMatrix);

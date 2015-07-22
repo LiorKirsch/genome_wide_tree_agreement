@@ -5,8 +5,8 @@ function viewScatterPlotsSubjects()
 
 load('/home/lab/lior/Projects/genome_wide_agreement/results/simpleMeasurementAllRegions-1-30000-subjects.mat')
 
-%     load('simpleMeasurementAllRegions-subjects');
-%     load('simpleMeasurementAllCortexRegions-subjects.mat');
+%     load('data_matfile/simpleMeasurementAllRegions-subjects');
+%     load('data_matfile/simpleMeasurementAllCortexRegions-subjects.mat');
     human6ResultsCell = human6Results;
     human6RandomResultsCell = human6RandomResults;
     
@@ -116,7 +116,7 @@ ytick = -0.1:0.1:1;
     % fprintf('developing: %d / %d  (%d%%)\n', sum(empirical_pvalue_developing < 0.01) , length(empirical_pvalue_developing) ,floor(sum(empirical_pvalue_developing< 0.01) / length(empirical_pvalue_developing)*100) );
     %========================================================================
 
-    cahoy_human = load('cahoy_human_homolgues.mat');
+    cahoy_human = load('data_matfile/cahoy_human_homolgues.mat');
     [cahoy_human_subset.scores_neurons, cahoy_human_subset.neurons_symbols, cahoy_human_subset.entrez] = addScoresToSubset(human6Results, human_gene_info, cahoy_human.neurons_human_entrez, cahoy_human.neurons_human_hsbc);
     [cahoy_human_subset.scores_astro, cahoy_human_subset.astro_symbols, cahoy_human_subset.entrez] = addScoresToSubset(human6Results, human_gene_info, cahoy_human.astro_human_entrez, cahoy_human.astro_human_hsbc);
     [cahoy_human_subset.scores_oligo, cahoy_human_subset.oligo_symbols, cahoy_human_subset.entrez] = addScoresToSubset(human6Results, human_gene_info, cahoy_human.oligo_human_entrez, cahoy_human.oligo_human_hsbc);

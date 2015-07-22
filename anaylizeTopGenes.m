@@ -1,5 +1,8 @@
 function anaylizeTopGenes()
+% analyzes the top BRO genes. (Enrichment, GO-cat...)
+% 
 
+init;
 % data_results = load('results/human6GrossRegions-1-30000.mat');
 data_results = load('results/human6AllRegions-1-30000.mat');
 human6Results = data_results.results;

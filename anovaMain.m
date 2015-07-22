@@ -1,12 +1,15 @@
 function anovaMain(startIndex, finishIndex)
-
+% For each gene, we perform Anova where the groups are the anatomical regions. 
+%
     addpath('/home/lab/gal/develop/matlab');
     addpath('~/Projects/general use functions/');
+    addpath('/home/lab/lior/Projects/buildStructureOntology/');
+
 
     % Load the tree
-    data_dirname = fullfile('/','home','lab', 'lior', 'Projects', 'individual variability');
-    filename = 'humanOntologyObject.mat';
-    load(fullfile(data_dirname, filename), 'humanOntology'); %#ok
+    filename = '/home/lab/lior/Projects/buildStructureOntology/humanOntologyObject.mat';
+    load(filename, 'humanOntology'); 
+    
 
     kangAges = {'4-8pcw', '8-10pcw', '10-13pcw', '13-16pcw', '16-19pcw', '19-24pcw', '24-38pcw', '0-6mo', '6-12mo', '1-6y', '6-12y', '12-20y', '20-40y', '40-60y', '60+y'};
     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangCortexAllRegions',kangAges);    
@@ -44,8 +47,8 @@ function anovaMain(startIndex, finishIndex)
     anovaScoresForGenesDeveloping = computeAnova(developing_expression, developing_gross_region_vec);
     correctedAnova_developing = mafdr(anovaScoresForGenesDeveloping, 'BHFDR', true);
     
-%     load('kang_genes_2_fold.mat','geneHasFoldChangeLargerThanX');
-%     save('kang_genes_2_fold.mat','geneHasFoldChangeLargerThanX_dev_all_ages','correctedAnova_developing','geneHasFoldChangeLargerThanX_human6','correctedAnova_human6');
+%     load('data_matfile/kang_genes_2_fold.mat','geneHasFoldChangeLargerThanX');
+%     save('data_matfile/kang_genes_2_fold.mat','geneHasFoldChangeLargerThanX_dev_all_ages','correctedAnova_developing','geneHasFoldChangeLargerThanX_human6','correctedAnova_human6');
     anovaScoresForGenesDeveloping_withFold = computeAnova(developing_expression(:,geneHasFoldChangeLargerThanX_dev_all_ages), developing_gross_region_vec);
     correctedAnova_developing_withFold = mafdr(anovaScoresForGenesDeveloping_withFold, 'BHFDR', true);    
     
@@ -53,7 +56,7 @@ function anovaMain(startIndex, finishIndex)
 %     anovaScoresForGenesHuman6 = computeAnova(human_expression, human_gross_region_vec);
 %     correctedAnova_human6 = mafdr(anovaScoresForGenesHuman6, 'BHFDR', true);
 
-    save('anova_results_cortex.mat', 'correctedAnova_developing_withFold', 'correctedAnova_developing','geneDexLarger2','developing_genes_info');
+    save('data_matfile/anova_results_cortex.mat', 'correctedAnova_developing_withFold', 'correctedAnova_developing','geneDexLarger2','developing_genes_info');
 end
 
 

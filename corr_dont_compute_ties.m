@@ -1,4 +1,10 @@
 function [coef, pval] = corr_dont_compute_ties(x, varargin)
+%  A corr function which does not compute ties.
+%  *** Lior *** I found that one of the reasons the corr function, which I
+%  call for many times, was very slow is because it has a special handling
+%  for ties.
+%  once I removed that functionalty it was much faster .
+%
 %CORR Linear or rank correlation.
 %   RHO = CORR(X) returns a P-by-P matrix containing the pairwise linear
 %   correlation coefficient between each pair of columns in the N-by-P

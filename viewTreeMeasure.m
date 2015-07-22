@@ -6,11 +6,11 @@ colors = [[0.8, 0.8,0.8] ; colors];
 set(0,'DefaultAxesColorOrder',colors);
 set(0,'DefaultAxesLineStyleOrder',{'-',':','--','.-'});
 
-%load('treeResults_with_newKang100.mat');
-%load('fullTreeResultsTriplets.mat');
- load('simpleMeasurementTree.mat');
+%load('data_matfile/treeResults_with_newKang100.mat');
+%load('data_matfile/fullTreeResultsTriplets.mat');
+ load('data_matfile/simpleMeasurementTree.mat');
 
-cahoy_human = load('cahoy_human_homolgues.mat');
+cahoy_human = load('data_matfile/cahoy_human_homolgues.mat');
 [cahoy_human_subset.scores_neurons, cahoy_human_subset.neurons_symbols, cahoy_human_subset.entrez] = addScoresToSubset(human6Results, human_gene_info, cahoy_human.neurons_human_entrez, cahoy_human.neurons_human_hsbc);
 [cahoy_human_subset.scores_astro, cahoy_human_subset.astro_symbols, cahoy_human_subset.entrez] = addScoresToSubset(human6Results, human_gene_info, cahoy_human.astro_human_entrez, cahoy_human.astro_human_hsbc);
 [cahoy_human_subset.scores_oligo, cahoy_human_subset.oligo_symbols, cahoy_human_subset.entrez] = addScoresToSubset(human6Results, human_gene_info, cahoy_human.oligo_human_entrez, cahoy_human.oligo_human_hsbc);

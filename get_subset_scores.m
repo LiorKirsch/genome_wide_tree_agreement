@@ -1,5 +1,11 @@
 function [scores, symbols_out, entrez_out,label] = get_subset_scores(...
     subset_name, human6Results, human_gene_info, human6RandomResults)
+% Get BRO scores for a group of genes provided by "subset_name"
+% Examples:
+%   To get the BRO score for the genes in the serotonin group:
+%    [scores, symbols_out, entrez_out,label] = get_subset_scores(...
+%        'serotonin', human6Results, human_gene_info, human6RandomResults)
+%   
 
 splits = textscan(subset_name,'%s %d','Delimiter','-');
 subset_name = splits{1}{1};
@@ -37,17 +43,17 @@ switch subset_name
         gene_entrez = nan(size(gene_sym));
         label = 'Axon guidance';
     case 'cahoy_astro'
-        cahoy_human = load('cahoy_human_homolgues.mat','astro_human_entrez','astro_human_hsbc');
+        cahoy_human = load('data_matfile/cahoy_human_homolgues.mat','astro_human_entrez','astro_human_hsbc');
         gene_entrez = cahoy_human.astro_human_entrez;
         gene_sym = cahoy_human.astro_human_hsbc;
         label = 'Astrocytes';
     case 'cahoy_oligo'
-        cahoy_human = load('cahoy_human_homolgues.mat','oligo_human_entrez','oligo_human_hsbc');
+        cahoy_human = load('data_matfile/cahoy_human_homolgues.mat','oligo_human_entrez','oligo_human_hsbc');
         gene_entrez = cahoy_human.oligo_human_entrez;
         gene_sym = cahoy_human.oligo_human_hsbc;
         label = 'Oligodendrocytes';
     case 'cahoy_neuro'
-        cahoy_human = load('cahoy_human_homolgues.mat','neurons_human_entrez','neurons_human_hsbc');
+        cahoy_human = load('data_matfile/cahoy_human_homolgues.mat','neurons_human_entrez','neurons_human_hsbc');
         gene_entrez = cahoy_human.neurons_human_entrez;
         gene_sym = cahoy_human.neurons_human_hsbc;
         label = 'Neurons';
@@ -57,7 +63,7 @@ switch subset_name
         gene_sym = housekeeping.symbol;
         label = 'Housekeeping';
     case 'age'
-        load('gene_ages.mat');
+        load('data_matfile/gene_ages.mat');
         num_age = extra_parm;
         gene_sym = selectedProbesData.gene_symbols(logical(ages(:,num_age)));
         gene_entrez = selectedProbesData.entrez_ids(logical(ages(:,num_age)));

@@ -1,4 +1,6 @@
 function [region_name_aba, region_sym_aba] = translate_kang_region_names_to_ABA(region_names)
+% Translates the Kang region names to the Allen convention
+%
 
 kang_region_names = {
  'primary auditory (A1) cortex';

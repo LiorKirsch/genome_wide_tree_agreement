@@ -1,4 +1,5 @@
 function viewScatterPlots()
+init;
 set(groot,'defaultAxesColorOrder','default');       
 
 random_samples_color = [0.4, 0.4,0.4];
@@ -28,22 +29,22 @@ ylimit = [0, 0.25] ; % full tree
 % ylimit = [0, 0.4] ; % for cortex
 
 
-% load('treeResults_with_newKang100.mat');
-%  load('simpleMeasurementTree.mat');
-% load('fullTreeResultsTriplets.mat');
-% load('simpleMeasurementFullTree.mat');
-% load('cortexTreeResultsTriplets.mat');
-% load('simpleMeasurementCortexTree.mat');
-% load('cortexAllTreeResultsTriplets.mat');
-% load('simpleMeasurementCortexAllTree.mat');
-% load('simpleMeasurementAllRegionsCortexPar.mat');
-% load('simpleMeasurementAllTreePar.mat');
-% load('simpleMeasurementAllTreeNormPar.mat');
+% load('data_matfile/treeResults_with_newKang100.mat');
+%  load('data_matfile/simpleMeasurementTree.mat');
+% load('data_matfile/fullTreeResultsTriplets.mat');
+% load('data_matfile/simpleMeasurementFullTree.mat');
+% load('data_matfile/cortexTreeResultsTriplets.mat');
+% load('data_matfile/simpleMeasurementCortexTree.mat');
+% load('data_matfile/cortexAllTreeResultsTriplets.mat');
+% load('data_matfile/simpleMeasurementCortexAllTree.mat');
+% load('data_matfile/simpleMeasurementAllRegionsCortexPar.mat');
+% load('data_matfile/simpleMeasurementAllTreePar.mat');
+% load('data_matfile/simpleMeasurementAllTreeNormPar.mat');
 
-% load('simpleMeasurementAllRegionsPar.mat');
-% load('simpleMeasurement16RegionsPar.mat');
-% load('simpleMeasurementAllRegionsCortexPar.mat');
-% load('simpleMeasurementCortexGrossPar.mat');
+% load('data_matfile/simpleMeasurementAllRegionsPar.mat');
+% load('data_matfile/simpleMeasurement16RegionsPar.mat');
+% load('data_matfile/simpleMeasurementAllRegionsCortexPar.mat');
+% load('data_matfile/simpleMeasurementCortexGrossPar.mat');
 
 % data_results = load('results/human6GrossRegions-1-30000.mat');
 data_results = load('results/human6AllRegions-1-30000.mat');
@@ -59,7 +60,7 @@ second_dataset_genes_info = data_results.gene_info;
 
 % homologous_genes_human6_zapala(human_gene_info, second_dataset_genes_info);
 
-%load('kang_genes_2_fold.mat');
+%load('data_matfile/kang_genes_2_fold.mat');
 %error = drawVenn(getIndicesLargerThanThreshold(second_dataset_results, second_dataset_random_results, 0.01, 'right') , geneHasFoldChangeLargerThanX_dev_all_ages', correctedAnova_developing  < 0.01, 0.5);
 %error = drawVenn(getIndicesLargerThanThreshold(human6Results, human6RandomResults, 0.01, 'right') , geneHasFoldChangeLargerThanX_human6', correctedAnova_human6  < 0.01, 0.5);
 [~,sortInd] = sort(human6Results); medianIndex = sortInd(round(length(sortInd)/2) );

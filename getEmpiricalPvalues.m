@@ -1,4 +1,7 @@
 function empirical_pvalue = getEmpiricalPvalues(scores, randomScores)
+% Computes emprical pvalues. For each element in scores it counts how many
+% random score are bigger than that score.
+%
     randomScores = randomScores(:);
     scores = scores(:);
 

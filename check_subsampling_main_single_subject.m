@@ -3,8 +3,8 @@ function check_subsampling_main_single_subject()
     kangAges = {'4-8pcw', '8-10pcw', '10-13pcw', '13-16pcw', '16-19pcw', '19-24pcw', '24-38pcw', '0-6mo', '6-12mo', '1-6y', '6-12y', '12-20y', '20-40y', '40-60y', '60+y'};
 
     
-%     load('simpleMeasurement16RegionsPar.mat');
-    load('simpleMeasurementAllRegionsPar.mat');
+%     load('data_matfile/simpleMeasurement16RegionsPar.mat');
+    load('data_matfile/simpleMeasurementAllRegionsPar.mat');
 
      
 

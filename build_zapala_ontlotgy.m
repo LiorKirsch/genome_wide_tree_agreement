@@ -1,4 +1,6 @@
 function zapala_ontology = build_zapala_ontlotgy()
+% Builds a region ontology for the region from the Zapala paper.
+%
 
     structureLabels = {'Grey matter';'Telencephalon';'Pallium';'Olfactory Bulbs';'Isocortex';'Motor Cortex';'Entorhinal Cortex';'Perirhinal Cortex';'Hippocampus';'Hippocampus CA1';'Hippocampus CA3';'Dentate Gyrus';'Subpallium';'Amygdala';'Bed nucleus of the stria terminalis';'Striatum';'Diencephalon';'Thalamus';'Hypothalamus';'Mesencephalon';'Inferior Colliculi';'Superior Colliculi';'Metencephalon';'Cerebellum';'Pons';'Myelencephalon';'Medulla'};
     structureLabels = [cell(length(structureLabels),3) , structureLabels];

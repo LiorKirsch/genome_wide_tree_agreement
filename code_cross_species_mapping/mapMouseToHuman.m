@@ -1,19 +1,28 @@
 function mapMouseToHuman()
+% maps between the Allen 6 human dataset and the mouse-ISH toolbox
 addpath('/home/lab/gal/develop/matlab');
+addpath(genpath('/home/lab/lior/Projects/genome_wide_agreement'));
 
-    x = load('/home/lab/gal/Projects/Limor/Data/ABA_expression_data.mat');
-    [mapping, genes_not_found] = createAllenToEntrezMapping(x.name_of_genes,'allen');
+
+    if exist('allen_mouse_entrez.data','file')
+        allen_mouse_entrez = textread('allen_mouse_entrez.data');
+    else
+        x = load('/home/lab/gal/Projects/Limor/Data/ABA_expression_data.mat');
+        [mapping, genes_not_found] = createAllenToEntrezMapping(x.name_of_genes,'allen');
+        
+        emptyCells = cellfun(@isempty,mapping(:,1) );
+        mapping(emptyCells,1) = {nan};
+        
+        allen_mouse_entrez = mapping(:,1);
+        allen_mouse_entrez = cell2mat(allen_mouse_entrez);
+    %     genesWithEntrez = ~isnan(allen_mouse_entrez);
+    %     allen_mouse_entrez = allen_mouse_entrez( genesWithEntrez );
+        fid = fopen('allen_mouse_entrez.txt','w');
+        fprintf(fid,'%d\n',allen_mouse_entrez);
+        fclose(fid);
+    end
+
     
-    emptyCells = cellfun(@isempty,mapping(:,1) );
-    mapping(emptyCells,1) = {nan};
-    
-    allen_mouse_entrez = mapping(:,1);
-    allen_mouse_entrez = cell2mat(allen_mouse_entrez);
-%     genesWithEntrez = ~isnan(allen_mouse_entrez);
-%     allen_mouse_entrez = allen_mouse_entrez( genesWithEntrez );
-    fid = fopen('allen_mouse_entrez.txt','w');
-    fprintf(fid,'%d\n',allen_mouse_entrez);
-    fclose(fid);
     
 
     % -------------------------------------------
@@ -27,9 +36,7 @@ addpath('/home/lab/gal/develop/matlab');
     [~, mouse_mgi, mouse_wikiname, mouse_entrez, human_hsbc, human_entrez] = textread('Mouse2Human.data', '%s %q %q %d %q %d','headerlines',1);
     
    
-        
-    h = load('/home/lab/lior/Projects/individual variability/easyFormatHumanData.mat','selectedProbesData');
-    
+    h = load('/cortex/data/microarray/human/Hawrylycz_2012/easyFormatHumanData.mat','selectedProbesData');
    
     [ind_for_human_data, ind_for_mouse_data, ~,relevent_genes_with_orthologs] = getTheJointIndcies(human_entrez,mouse_entrez, h.selectedProbesData.entrez_ids, allen_mouse_entrez);
     numberOfJointGenes = sum(relevent_genes_with_orthologs);
@@ -43,7 +50,7 @@ addpath('/home/lab/gal/develop/matlab');
 % get the expression and the region vec from the dataset then slice and sort it by the
 % order that is common to both mouse and human.
 
-    [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names] = load_expression_and_regions('human6',[]);
+    [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names] = load_expression_and_regions('human6GrossRegions',[]);
     human_genes_symbols = human_gene_info.gene_symbols;
     human_expression = human_expression(:,ind_for_human_data);
     human_genes_symbols = human_genes_symbols(ind_for_human_data);

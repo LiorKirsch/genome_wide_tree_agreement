@@ -1,4 +1,7 @@
 function compareDistributions(distA, distB, nameA, nameB)
+% Compares two distributions using Wilcoxon rank sum test
+% It outputs the wilcoxon pvalue and also the one tail pvalues.
+%
     pvalue = ranksum(distA, distB);
     meadianA = median(distA);
     meadianB = median(distB);

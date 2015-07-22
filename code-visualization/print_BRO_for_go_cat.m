@@ -1,4 +1,14 @@
 function cat_mask = print_BRO_for_go_cat(go_cat, gene_symbols, gene_scores)
+% prints the BRO score for the genes in the GO category "go_cat"
+% Input
+%       go_cat - a string which hold the go category name.
+%       gene_symbols - a list of gene symbols
+%       gene_scores - a score for each gene (same order as gene_symbols
+%
+% The function load all the genes which are related to "go_cat" it then
+% searches for the symbols and match each gene with its score.
+% Finally, it prints the gene in the category along side with their scores.
+%
 
 switch go_cat
     case 'schizophrenia'

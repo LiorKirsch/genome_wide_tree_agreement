@@ -1,3 +1,6 @@
+% Creates The human marker list for the Cahoy neuronal markers dataset
+%
+
 addpath('/home/lab/lior/Projects/general use functions');
 
 % load the human entrez from the allen 6 human dataset
@@ -14,4 +17,4 @@ fold_threshold = 10;
 [~, ~, ~, astro_human_hsbc, astro_human_entrez] = findHomolgousMouseHuman(astro_entrez, humanEntrez);
 [~, ~, ~, oligo_human_hsbc, oligo_human_entrez] = findHomolgousMouseHuman(oligo_entrez, humanEntrez);
 
-save('cahoy_human_homologous.mat', 'neurons_human_hsbc', 'neurons_human_entrez', 'astro_human_hsbc', 'astro_human_entrez', 'oligo_human_hsbc', 'oligo_human_entrez','fold_threshold');
+save('data_matfile/cahoy_human_homologous.mat', 'neurons_human_hsbc', 'neurons_human_entrez', 'astro_human_hsbc', 'astro_human_entrez', 'oligo_human_hsbc', 'oligo_human_entrez','fold_threshold');

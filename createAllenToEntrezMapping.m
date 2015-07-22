@@ -11,7 +11,7 @@ function [mapping ,genesNotFound] = createAllenToEntrezMapping(listOfGenes,dataT
 % [~,	genesymbol,	genename,	~,	~,	entrezgeneid,	ncbiaccessionnumber] = textread('gene-series-map.tsv', '%s %s %s %s %s %d %s','delimiter','\t','headerlines',1);
 %     entrez = entrezgeneid;
 %     entrez( entrezgeneid == 0) = nan;
-% save('Allen2Entrez.mat');
+% save('data_matfile/Allen2Entrez.mat');
 
 switch dataType
     case 'allen'
@@ -26,7 +26,7 @@ end
 
 function [mapping ,genesNotFound]= allen2Entrez(gene_names)
 
-    load('Allen2Entrez.mat');
+    load('data_matfile/Allen2Entrez.mat');
 %     [foundInList, geneInd] = ismember(gene_names, genesymbol);
     geneInd = cellfind(genesymbol, gene_names);
     genesNotFound = geneInd == 0;
@@ -38,7 +38,7 @@ end
 
 function entrez2Allen(entrez_input)
 
-    load('Allen2Entrez.mat');
+    load('data_matfile/Allen2Entrez.mat');
     
    
 end

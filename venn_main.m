@@ -1,5 +1,5 @@
 function venn_main()
-
+    init;
     kangAges = {'4-8pcw', '8-10pcw', '10-13pcw', '13-16pcw', '16-19pcw', '19-24pcw', '24-38pcw', '0-6mo', '6-12mo', '1-6y', '6-12y', '12-20y', '20-40y', '40-60y', '60+y'};
 
 %% best resolution cortex regions
@@ -8,7 +8,7 @@ function venn_main()
 %     geneHasFoldChangeLargerThanX_dev_all_ages = findMoreThan2Folds(developing_expression, developing_gross_region_vec);       
 %     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6CortexAllRegions', []);
 %     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangCortexAllRegions',[]);
-%     load('simpleMeasurementAllRegionsCortexPar.mat');
+%     load('data_matfile/simpleMeasurementAllRegionsCortexPar.mat');
 
 %% best resolution regions
 
@@ -16,7 +16,7 @@ function venn_main()
     geneHasFoldChangeLargerThanX_dev_all_ages = findMoreThan2Folds(developing_expression, developing_gross_region_vec);       
     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6AllRegions', []);
     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangAllRegions',[]);
-%     load('simpleMeasurementAllRegionsPar.mat');
+%     load('data_matfile/simpleMeasurementAllRegionsPar.mat');
     
     load('simpleMeasurementAllRegions-subjects');
     human6ResultsCell = human6Results;
@@ -35,7 +35,7 @@ function venn_main()
 %     geneHasFoldChangeLargerThanX_dev_all_ages = findMoreThan2Folds(developing_expression, developing_gross_region_vec);       
 %     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6', []);
 %     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangAllRegions',[]);
-%     load('simpleMeasurement16RegionsPar.mat');
+%     load('data_matfile/simpleMeasurement16RegionsPar.mat');
     
 %% cortex gross regions
 
@@ -43,7 +43,7 @@ function venn_main()
 %     geneHasFoldChangeLargerThanX_dev_all_ages = findMoreThan2Folds(developing_expression, developing_gross_region_vec);    
 %     [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6Cortex',[]);
 %     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kangCortex',[]);
-%     load('simpleMeasurementCortexGrossPar.mat');
+%     load('data_matfile/simpleMeasurementCortexGrossPar.mat');
 
 
     num_subjects  = size(human_samples2subjects,2);

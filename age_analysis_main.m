@@ -1,6 +1,10 @@
+% Analyzes the relations between the BRO-score and gene-age
+%
+
+init;
 set(gca,'FontSize', 22);
 
-load('all_ages.mat');
+load('data_matfile/all_ages.mat');
 
 % agesDes ={'Life before LCA of Cellular_organisms - Cellular organisms';'Cellular organisms - Eukaryota';'Eukaryota - Opisthokonta';'Opisthokonta - Holozoa';'Holozoa - Metazoa';'Metazoa - Eumetazoa';'Eumetazoa - Bilateria';'Bilateria - Deuterostomia';'Deuterostomia - Chordata';'Chordata - Olfactores';'Olfactores - Craniata';'Craniata - Euteleostomi';'Euteleostomi - Tetrapoda';'Tetrapoda - Amniota';'Amniota - Mammalia';'Mammalia - Eutheria';'Eutheria - Boreoeutheria';'Boreoeutheria - Euarchontoglires';'Euarchontoglires - Primates'};
 num_age = find(strcmp('Opisthokonta - Holozoa', agesDescription));

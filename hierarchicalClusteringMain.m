@@ -1,18 +1,26 @@
 function hierarchicalClusteringMain()
+% Does hierarchical clustering of brain regions based on their expression
+% values
+%
 
 %     conf = configureation();
     
     %============== Load the tree ==================
-    addpath('~/Projects/individual variability');
+%     addpath('~/Projects/individual variability');
+    init;
     addpath('~/Projects/general use functions/');
     addpath('~/Projects/genome_wide_agreement/');
-    addpath('/home/lab/gal/develop/matlabxt');
+    addpath('/home/lab/gal/develop/matlab');
 
-    load('~/Projects/individual variability/humanOntologyObject.mat');
+    
+    addpath('/home/lab/lior/Projects/buildStructureOntology/');
+    % Load the tree
+    filename = '/home/lab/lior/Projects/buildStructureOntology/humanOntologyObject.mat';
+    load(filename, 'humanOntology'); 
     treeMatrix = humanOntology.dependencyMatrix;
 
     
-    [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names, physicalLocation] = load_expression_and_regions('human6', []);
+    [human_expression, human_gross_region_vec, human_gene_info, human_samples2subjects, human_gross_region_names] = load_expression_and_regions('human6GrossRegions', []);
 %     [developing_expression, developing_gross_region_vec, developing_genes_info, developing_samples2subjects, developing_gross_region_names] = load_expression_and_regions('kang',[]);
     
     regionColors = humanOntology.getColorByRegionName(human_gross_region_names);
@@ -24,8 +32,8 @@ function hierarchicalClusteringMain()
     drawCorrelationMatrixWithBorders(correlationMatrixReorder, samples_region_reorder, human_gross_region_names(region_reorder));
     colorbar;
     axis ij;
-    saveFigure(gcf, 'sampleCorrelationMatrix', 'png');
-    saveFigure(gcf, 'sampleCorrelationMatrix', 'tiff');
+    saveFigure(gcf, 'figures/sampleCorrelationMatrix', 'png');
+    saveFigure(gcf, 'figures/sampleCorrelationMatrix', 'tiff');
 %     correlationMatrix = createMeanPaircorrelationMatrix(human_expression, human_gross_region_vec, length( human_gross_region_names));
 %     
 %     distanceMatrix = 1 - correlationMatrix ;
@@ -59,25 +67,25 @@ function hierarchicalClusteringMain()
     htext = xticklabel_rotate(1:length(human_gross_region_names), 40, human_gross_region_names(outperm));
 %     colorLabels(htext, regionColors);
     set(gca,'YTick',linspace(0,150,4));
-    saveFigure(gcf, 'hierarachical-mean', 'png');
-    saveFigure(gcf, 'hierarachical-mean', 'tiff');
-    saveFigure(gcf, 'hierarachical-mean', 'eps');
+    saveFigure(gcf, 'figures/hierarachical-mean', 'png');
+    saveFigure(gcf, 'figures/hierarachical-mean', 'tiff');
+    saveFigure(gcf, 'figures/hierarachical-mean', 'eps');
     
     figure;
     image(1:length(regionColors),1,1:length(regionColors)); colormap(regionColors);
     axis off
     axis image
-    saveFigure(gcf, 'hierarachical-colorbar', 'png');
-    saveFigure(gcf, 'hierarachical-colorbar', 'tiff');
-    saveFigure(gcf, 'hierarachical-colorbar', 'eps');
+    saveFigure(gcf, 'figures/hierarachical-colorbar', 'png');
+    saveFigure(gcf, 'figures/hierarachical-colorbar', 'tiff');
+    saveFigure(gcf, 'figures/hierarachical-colorbar', 'eps');
 
 %     createFigure();
 %     a = linkage(median_expression_in_region);
 %     [~,~,outperm] = dendrogram(a);
 %     xticklabel_rotate(1:length(human_gross_region_names), 40, human_gross_region_names(outperm));
 %     set(gca,'YTick',linspace(0,150,4));
-%     saveFigure(gcf, 'hierarachical-media', 'png');
-%     saveFigure(gcf, 'hierarachical-media', 'tiff');
+%     saveFigure(gcf, 'figures/hierarachical-media', 'png');
+%     saveFigure(gcf, 'figures/hierarachical-media', 'tiff');
 end
 
 function colorLabels(textHandle, colors)

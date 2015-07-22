@@ -1,4 +1,5 @@
 function viewScatterPlots()
+set(groot,'defaultAxesColorOrder','default');       
 
 random_samples_color = [0.4, 0.4,0.4];
 all_samples_color = [0.8, 0.8,0.8];
@@ -12,10 +13,10 @@ oligo_color =  [ 0,0,0.3];
 astro_color =  [ 1, 0, 0];
 
 % colors = distinguishable_colors(20);
-colors = [all_samples_color; [ 0 0 1;  0 0 0.3; 1 0 0 ; 0.5,0.8,0.3] ];
-
-set(0,'DefaultAxesColorOrder',colors);
-set(0,'DefaultAxesLineStyleOrder',{'-',':','--','.-'});
+% colors = [all_samples_color; [ 0 0 1;  0 0 0.3; 1 0 0 ; 0.5,0.8,0.3] ];
+% 
+% set(0,'DefaultAxesColorOrder',colors);
+% set(0,'DefaultAxesLineStyleOrder',{'-',':','--','.-'});
 
 xtick = -0.1:0.1:1;
 ytick = -0.1:0.1:1;
@@ -50,7 +51,8 @@ human6Results = data_results.results;
 human6RandomResults = data_results.randomResults;
 human_gene_info = data_results.gene_info;
 
-data_results = load('results/zapalaMouse-1-30000.mat');
+% data_results = load('results/zapalaMouse-1-30000.mat');
+data_results = load('results/kangAllRegions-1-30000.mat');
 second_dataset_results = data_results.results;
 second_dataset_random_results = data_results.randomResults;
 second_dataset_genes_info = data_results.gene_info;
@@ -75,57 +77,45 @@ fprintf('%s ( %d ) is the median\n', human_gene_info.gene_symbols{medianIndex}, 
 
 figure('Name','qvalue vs gene count');
 ploth = drawNumGenesVsRightPvalue(human6Results,human6RandomResults);
-%     set(gca,'ytick',[0:5000:20000]);
 fileName = 'pvalue_cumsumm';
 saveFigure(gcf, fileName, 'png');
 saveFigure(gcf, fileName, 'tiff');
 saveFigure(gcf, fileName, 'eps');
     
     
-    
-cahoy_human = load('cahoy_human_homolgues.mat');
-[cahoy_human_subset.scores_neurons, cahoy_human_subset.neurons_symbols, cahoy_human_subset.entrez] = addScoresToSubset(human6Results, human_gene_info, cahoy_human.neurons_human_entrez, cahoy_human.neurons_human_hsbc);
-[cahoy_human_subset.scores_astro, cahoy_human_subset.astro_symbols, cahoy_human_subset.entrez] = addScoresToSubset(human6Results, human_gene_info, cahoy_human.astro_human_entrez, cahoy_human.astro_human_hsbc);
-[cahoy_human_subset.scores_oligo, cahoy_human_subset.oligo_symbols, cahoy_human_subset.entrez] = addScoresToSubset(human6Results, human_gene_info, cahoy_human.oligo_human_entrez, cahoy_human.oligo_human_hsbc);
-cahoy_human_subset.empirical_pvalue_neurons = getEmpiricalPvalues(cahoy_human_subset.scores_neurons, human6RandomResults);
-cahoy_human_subset.empirical_pvalue_neurons = mafdr(cahoy_human_subset.empirical_pvalue_neurons, 'BHFDR', true);
-cahoy_human_subset.empirical_pvalue_astro = getEmpiricalPvalues(cahoy_human_subset.scores_astro, human6RandomResults);
-cahoy_human_subset.empirical_pvalue_astro = mafdr(cahoy_human_subset.empirical_pvalue_astro, 'BHFDR', true);
-cahoy_human_subset.empirical_pvalue_oligo = getEmpiricalPvalues(cahoy_human_subset.scores_oligo, human6RandomResults);
-cahoy_human_subset.empirical_pvalue_oligo = mafdr(cahoy_human_subset.empirical_pvalue_oligo, 'BHFDR', true);
-fprintf('neurons: %d / %d  (%d%%)\n', sum(cahoy_human_subset.empirical_pvalue_neurons < 0.01) , length(cahoy_human_subset.empirical_pvalue_neurons) ,floor(sum(cahoy_human_subset.empirical_pvalue_neurons < 0.01) / length(cahoy_human_subset.empirical_pvalue_neurons)*100) );
-fprintf('astro: %d / %d  (%d%%)\n', sum(cahoy_human_subset.empirical_pvalue_astro < 0.01) , length(cahoy_human_subset.empirical_pvalue_astro) ,floor(sum(cahoy_human_subset.empirical_pvalue_astro < 0.01) / length(cahoy_human_subset.empirical_pvalue_astro)*100) );
-fprintf('oligo: %d / %d  (%d%%)\n', sum(cahoy_human_subset.empirical_pvalue_oligo < 0.01) , length(cahoy_human_subset.empirical_pvalue_oligo) ,floor(sum(cahoy_human_subset.empirical_pvalue_oligo < 0.01) / length(cahoy_human_subset.empirical_pvalue_oligo)*100) );
 
+[cahoy_human_subset.scores_neurons, cahoy_human_subset.neurons_symbols, cahoy_human_subset.neuro_entrez] =...
+    get_subset_scores('cahoy_neuro', human6Results, human_gene_info,human6RandomResults);
+[cahoy_human_subset.scores_astro, cahoy_human_subset.astro_symbols, cahoy_human_subset.astro_entrez] =...
+    get_subset_scores('cahoy_astro', human6Results, human_gene_info,human6RandomResults);
+[cahoy_human_subset.scores_oligo, cahoy_human_subset.oligo_symbols, cahoy_human_subset.oligo_entrez] =...
+    get_subset_scores('cahoy_oligo', human6Results, human_gene_info,human6RandomResults);
+[housekeeping_subset.scores, housekeeping_subset.symbol, housekeeping_subset.entrez] = get_subset_scores(...
+    'housekeeping', human6Results, human_gene_info, human6RandomResults);
+[hoxGenes_subset.scores, hoxGenes_subset.symbol, hoxGenes_subset.entrez] = get_subset_scores(...
+    'HOX', human6Results, human_gene_info, human6RandomResults);
+[axon_guidance_subset.scores, axon_guidance_subset.symbol, axon_guidance_subset.entrez] = get_subset_scores(...
+    'axon_guidance', human6Results, human_gene_info,human6RandomResults);
+[paxGene.scores, paxGene.symbol, paxGene.entrez] = get_subset_scores(...
+    'PAX', human6Results, human_gene_info,human6RandomResults);
+[soxGene.scores, soxGene.symbol, soxGene.entrez] = get_subset_scores(...
+    'SOX2', human6Results, human_gene_info,human6RandomResults);
+[serotoninGene.scores, serotoninGene.symbols, serotoninGene.entrez] = get_subset_scores(...
+    'serotonin', human6Results, human_gene_info,human6RandomResults);
+[dopaminGene.scores, dopaminGene.symbols, dopaminGene.entrez] = get_subset_scores(...
+    'dopamin', human6Results, human_gene_info,human6RandomResults);
+[dopaminAndSertonin.scores, dopaminAndSertonin.symbols, dopaminAndSertonin.entrez] = get_subset_scores(...
+    'dopaminAndSertonin', human6Results, human_gene_info,human6RandomResults);
+age_scores = {}; age_labels = {};
+for i =5
+    [age_scores_i,~,~,age_labels_i] = get_subset_scores(...
+    sprintf('age-%d',i ), human6Results, human_gene_info,human6RandomResults);
+    age_scores = cat(2,age_scores, {age_scores_i});
+    age_labels = cat(2,age_labels, {age_labels_i});
+end
+age_colors = autumn(length(age_labels) +1);
+age_colors = age_colors(1:end-1,:);
 
-
-[housekeeping.ensembl_gene_id,housekeeping.transcript_gene_id ,housekeeping.entrez ,housekeeping.symbol ] = textread('/cortex/data/gene_sets/house_keeping_genes/Erez_2003.txt','%s %s %d %s','headerlines',1);
-[housekeeping_subset.scores, housekeeping_subset.symbols, housekeeping_subset.entrez] = addScoresToSubset(human6Results, human_gene_info, housekeeping.entrez, housekeeping.symbol);
-
-hoxGenesSymbols = {'Hoxa1';'Hoxa10';'Hoxa11';'Hoxa2';'Hoxa3';'Hoxa4';'Hoxa5';'Hoxa6';'Hoxa7';'Hoxa9';'Hoxb1';'Hoxb13';'Hoxb3';'Hoxb4';'Hoxb5';'Hoxb6';'Hoxb9';'Hoxc10';'Hoxc12';'Hoxc13';'Hoxc4';'Hoxc5';'Hoxc8';'Hoxc9';'Hoxd1';'Hoxd12';'Hoxd13';'Hoxd3';'Hoxd4';'Hoxd8';'Hoxd8';'Hoxd9';};
-[~, indInList] = ismember(upper(hoxGenesSymbols),human_gene_info.gene_symbols);
-hoxGenes.symbol = human_gene_info.gene_symbols(indInList);
-hoxGenes.entrez = human_gene_info.entrez_ids(indInList);
-[hoxGenes_subset.scores, hoxGenes_subset.symbols, hoxGenes_subset.entrez] = addScoresToSubset(human6Results, human_gene_info, hoxGenes.entrez, hoxGenes.symbol);
-hoxGenes_subset.empirical_pvalue = getEmpiricalPvalues(hoxGenes_subset.scores, human6RandomResults);
-hoxGenes_subset.empirical_pvalue = mafdr(hoxGenes_subset.empirical_pvalue, 'BHFDR', true);
-fprintf('hox: %d / %d  (%d%%)\n', sum(hoxGenes_subset.empirical_pvalue < 0.01) , length(hoxGenes_subset.empirical_pvalue) ,floor(sum(hoxGenes_subset.empirical_pvalue < 0.01) / length(hoxGenes_subset.empirical_pvalue)*100) );
-
-[axon_guidance.symbol ] = textread('/cortex/data/gene_sets/human_axon_gudiance','%s');
-[axon_guidance_subset.scores, axon_guidance_subset.symbols, axon_guidance_subset.entrez] = addScoresToSubset(human6Results, human_gene_info, nan(size(axon_guidance.symbol)), axon_guidance.symbol);
-
-
-paxGeneSymbol = {'Pax1','Pax2','Pax3','Pax4','Pax5','Pax6','Pax7','Pax8';};
-[~, indInList] = ismember(upper(paxGeneSymbol),human_gene_info.gene_symbols);
-paxGene.symbol = human_gene_info.gene_symbols(indInList);
-paxGene.entrez = human_gene_info.entrez_ids(indInList);
-[paxGene.scores, paxGene.symbols, paxGene.entrez] = addScoresToSubset(human6Results, human_gene_info, paxGene.entrez, paxGene.symbol);
-
-sox2GeneSymbol = {'SOX2';};
-[~, indInList] = ismember(upper(sox2GeneSymbol),human_gene_info.gene_symbols);
-soxGene.symbol = human_gene_info.gene_symbols(indInList);
-soxGene.entrez = human_gene_info.entrez_ids(indInList);
-[soxGene.scores, soxGene.symbols, soxGene.entrez] = addScoresToSubset(human6Results, human_gene_info, soxGene.entrez, soxGene.symbol);
 
 fprintf('human6: ');
 moreThenXPercent(human6Results, human6RandomResults, 0.99);
@@ -135,27 +125,6 @@ moreThenXPercent(second_dataset_results, second_dataset_random_results, 0.99);
 
 
 
-serotoninGeneSymbol = {'HTR1A','HTR1B','HTR1D','HTR1E','HTR1F','HTR2A','HTR2B','HTR2C','HTR3A','HTR3B','HTR3C','HTR3D','HTR3E','HTR4','HTR5A','HTR6','HTR7','TPH1','TPH2', 'SLC6A4'};
-[~, indInList] = ismember(upper(serotoninGeneSymbol),human_gene_info.gene_symbols);
-serotoninGene.symbol = human_gene_info.gene_symbols(indInList);
-serotoninGene.entrez = human_gene_info.entrez_ids(indInList);
-[serotoninGene.scores, serotoninGene.symbols, serotoninGene.entrez] = addScoresToSubset(human6Results, human_gene_info, serotoninGene.entrez, serotoninGene.symbol);
-
-dopaminGeneSymbol = {'COMT','DRD1','DRD2','DRD3','DRD4','DRD5','SLC6A3','TH'};
-[~, indInList] = ismember(upper(dopaminGeneSymbol),human_gene_info.gene_symbols);
-dopaminGene.symbol = human_gene_info.gene_symbols(indInList);
-dopaminGene.entrez = human_gene_info.entrez_ids(indInList);
-[dopaminGene.scores, dopaminGene.symbols, dopaminGene.entrez] = addScoresToSubset(human6Results, human_gene_info, dopaminGene.entrez, dopaminGene.symbol);
-
-dopaminAndSertoninGeneSymbol = {'DDC', 'MAOA','MAOB','SLC18A1','SLC18A2'};
-[~, indInList] = ismember(upper(dopaminAndSertoninGeneSymbol),human_gene_info.gene_symbols);
-dopaminAndSertoninGene.symbol = human_gene_info.gene_symbols(indInList);
-dopaminAndSertoninGene.entrez = human_gene_info.entrez_ids(indInList);
-[dopaminAndSertoninGene.scores, dopaminAndSertoninGene.symbols, dopaminAndSertoninGene.entrez] = addScoresToSubset(human6Results, human_gene_info, dopaminAndSertoninGene.entrez, dopaminAndSertoninGene.symbol);
-
-
-
-% 
 % figure('name','Scatter with random');
 % hold on;
 % scatterDots = scatterScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info);
@@ -167,9 +136,9 @@ dopaminAndSertoninGene.entrez = human_gene_info.entrez_ids(indInList);
 % set(gca,'ytick',ytick); set(gca,'xtick',xtick);
 % title('');
 % redoScatterImage(xlimit);
-% saveFigure(gcf, 'scatter_random.png', 'png');
-% saveFigure(gcf, 'scatter_random.tiff', 'tiff');
-% saveFigure(gcf, 'scatter_random', 'eps');
+% saveFigure(gcf, 'figures/scatter_random.png', 'png');
+% saveFigure(gcf, 'figures/scatter_random.tiff', 'tiff');
+% saveFigure(gcf, 'figures/scatter_random', 'eps');
 % 
 % figure('name','Cell type scatter');
 % hold on;
@@ -184,9 +153,9 @@ dopaminAndSertoninGene.entrez = human_gene_info.entrez_ids(indInList);
 % set(gca,'ytick',ytick); set(gca,'xtick',xtick);
 % title('');
 % redoScatterImage(xlimit);
-% saveFigure(gcf, 'scatter_cellType.png', 'png');
-% saveFigure(gcf, 'scatter_cellType.tiff', 'tiff');
-% saveFigure(gcf, 'scatter_cellType.eps', 'eps');
+% saveFigure(gcf, 'figures/scatter_cellType.png', 'png');
+% saveFigure(gcf, 'figures/scatter_cellType.tiff', 'tiff');
+% saveFigure(gcf, 'figures/scatter_cellType.eps', 'eps');
 % 
 % figure('name','Housekeeping scatter');
 % scatterDots = scatterScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info);
@@ -198,9 +167,9 @@ dopaminAndSertoninGene.entrez = human_gene_info.entrez_ids(indInList);
 % set(gca,'ytick',ytick); set(gca,'xtick',xtick);
 % title('');
 % redoScatterImage(xlimit);
-% saveFigure(gcf, 'scatter_house.png', 'png');
-% saveFigure(gcf, 'scatter_house.tiff', 'tiff');
-% saveFigure(gcf, 'scatter_house.eps', 'eps');
+% saveFigure(gcf, 'figures/scatter_house.png', 'png');
+% saveFigure(gcf, 'figures/scatter_house.tiff', 'tiff');
+% saveFigure(gcf, 'figures/scatter_house.eps', 'eps');
 % 
 % figure('name','Hox and Axon guidance scatter');
 % scatterDots = scatterScores(human6Results, human_gene_info, second_dataset_results , second_dataset_genes_info);
@@ -216,9 +185,9 @@ dopaminAndSertoninGene.entrez = human_gene_info.entrez_ids(indInList);
 % set(gca,'ytick',ytick); set(gca,'xtick',xtick);
 % title('');
 % redoScatterImage(xlimit);
-% saveFigure(gcf, 'scatter_axon.png', 'png');
-% saveFigure(gcf, 'scatter_axon.tiff', 'tiff');
-% saveFigure(gcf, 'scatter_axon', 'eps');
+% saveFigure(gcf, 'figures/scatter_axon.png', 'png');
+% saveFigure(gcf, 'figures/scatter_axon.tiff', 'tiff');
+% saveFigure(gcf, 'figures/scatter_axon', 'eps');
 % 
 % 
 % 
@@ -235,9 +204,9 @@ dopaminAndSertoninGene.entrez = human_gene_info.entrez_ids(indInList);
 % set(gca,'ytick',ytick); set(gca,'xtick',xtick);
 % title('');
 % redoScatterImage(xlimit);
-% saveFigure(gcf, 'scatter_serotonin.png', 'png');
-% saveFigure(gcf, 'scatter_serotonin.tiff', 'tiff');
-% saveFigure(gcf, 'scatter_serotonin', 'eps');
+% saveFigure(gcf, 'figures/scatter_serotonin.png', 'png');
+% saveFigure(gcf, 'figures/scatter_serotonin.tiff', 'tiff');
+% saveFigure(gcf, 'figures/scatter_serotonin', 'eps');
 % 
 
 
@@ -250,80 +219,25 @@ dopaminAndSertoninGene.entrez = human_gene_info.entrez_ids(indInList);
 
 % compareDistributions(human6Results, human6RandomResults(:), 'all human6', 'randomHuman6');
 % compareDistributions( second_dataset_results,second_dataset_random_results(:), 'all kang','randomKang');
-compareDistributions(cahoy_human_subset.scores_neurons, human6Results, 'neurons','all human6');
-compareDistributions(cahoy_human_subset.scores_oligo, human6Results,   'oligo', 'all human6');
-compareDistributions(cahoy_human_subset.scores_astro, human6Results,  'astro', 'all human6');
-compareDistributions(axon_guidance_subset.scores,human6Results,  'axon', 'all human6');
-compareDistributions( hoxGenes_subset.scores, human6Results, 'hox','all human6');
-compareDistributions( paxGene.scores, human6Results, 'pax','all human6');
-compareDistributions(housekeeping_subset.scores, human6Results,  'house', 'all human6');
-
-% compareDistributions( hoxGenes_subset.scores, human6RandomResults(:), 'hox','randomHuman6');
-% compareDistributions( housekeeping_subset.scores, human6RandomResults(:), 'house','randomHuman6');
-
-f = figure('name','Human6 distribution');  
-ploth = displayMultiDist({human6Results,human6RandomResults}, 'BRO-agreement (ABA6-2013)',{'All','Random'} ,xlimit);
-set(ploth(2), 'Color', random_samples_color );  set(ploth,'LineWidth',  3 );
-redoDistImage(xlimit); set(ploth,'LineWidth',  3 );
-set(gca,'ytick',[0:0.2:1]);
-saveFigure(gcf, 'dist_random.png', 'png');
-saveFigure(gcf, 'dist_random.tiff', 'tiff');
-saveFigure(gcf, 'dist_random', 'eps');
-
-figure('name','Kang distribution');  
-ploth = displayMultiDist({second_dataset_results,second_dataset_random_results}, 'BRO-agreement (Kang-2011)',{'All','Random'} ,xlimit);
-set(ploth(2), 'Color', random_samples_color );  set(ploth,'LineWidth',  3 );
-redoDistImage(xlimit); set(ploth,'LineWidth',  3 );
-set(gca,'ytick',[0:0.2:1]);
-saveFigure(gcf, 'dist_kang_random.png', 'png');
-saveFigure(gcf, 'dist_kang_random.tiff', 'tiff');
-saveFigure(gcf, 'dist_kang_random', 'eps');
-
-figure('name','Human6 cahoy distribution'); 
-ploth = displayMultiDist({  human6Results, cahoy_human_subset.scores_oligo, cahoy_human_subset.scores_astro, cahoy_human_subset.scores_neurons}, 'BRO-agreement (ABA6-2013)',{'All','Oligodendrocytes','Astrocytes','Neurons'} ,xlimit);
-set(ploth(2),'Color', oligo_color ); 
-set(ploth(3),'Color', astro_color ); 
-set(ploth(4),'Color', neurons_color ); 
-redoDistImage(xlimit); set(ploth,'LineWidth',  3 );
-ylim(ylimit);
-saveFigure(gcf, 'dist_cellType.png', 'png');
-saveFigure(gcf, 'dist_cellType.tiff', 'tiff');
-saveFigure(gcf, 'dist_cellType', 'eps');
-
-figure('name','Human6 housekeeping distribution'); 
-ploth = displayMultiDist({human6Results,housekeeping_subset.scores}, 'BRO-agreement (ABA6-2013)',{'All','Housekeeping'} ,xlimit);
-set(ploth(2),'Color', house_keeping_color );  set(ploth,'LineWidth',  3 );
-redoDistImage(xlimit);
-ylim(ylimit);
-saveFigure(gcf, 'dist_house.png', 'png');
-saveFigure(gcf, 'dist_house.tiff', 'tiff');
-saveFigure(gcf, 'dist_house', 'eps');
-
-figure('name','Human6 axon guidance distribution'); 
-ploth = displayMultiDist({human6Results,axon_guidance_subset.scores,hoxGenes_subset.scores, paxGene.scores}, 'BRO-agreement (ABA6-2013)',{'All','Axon guidance','Hox','Pax'} ,xlimit);
-set(ploth(2),'Color', axon_guidance_color ); 
-set(ploth(3),'Color', hox_color ); 
-set(ploth(4),'Color', pax_color ); 
-set(ploth,'LineWidth',  3 );
-redoDistImage(xlimit);
-ylim(ylimit);
-saveFigure(gcf, 'dist_axon.png', 'png');
-saveFigure(gcf, 'dist_axon.tiff', 'tiff');
-saveFigure(gcf, 'dist_axon', 'eps');
 
 
-figure('name','Human6 serotonin distribution'); 
-ploth = displayMultiDist({human6Results,serotoninGene.scores}, 'BRO-agreement (ABA6-2013)',{'All','Serotonin'} ,xlimit);
-set(ploth(2), 'Color', pax_color ); 
-set(ploth,'LineWidth',  3 );
-redoDistImage(xlimit);
-ylim(ylimit);
-saveFigure(gcf, 'dist_serotonin.png', 'png');
-saveFigure(gcf, 'dist_serotonin.tiff', 'tiff');
-saveFigure(gcf, 'dist_serotonin', 'eps');
-
+draw_groups_dist('Human6',{human6Results,human6RandomResults}, ...
+    {'All','Random'}, [all_samples_color;random_samples_color], xlimit,ylimit);
+draw_groups_dist('Kang',{second_dataset_results,second_dataset_random_results}, ...
+    {'All','Random'}, [all_samples_color;random_samples_color], xlimit,ylimit);
+draw_groups_dist('Human6 cahoy',{  human6Results, cahoy_human_subset.scores_oligo, cahoy_human_subset.scores_astro, cahoy_human_subset.scores_neurons},...
+    {'All','Oligodendrocytes','Astrocytes','Neurons'} , [all_samples_color;oligo_color;astro_color;neurons_color], xlimit,ylimit);
+draw_groups_dist('Human6 housekeeping',{human6Results,housekeeping_subset.scores}, ...
+    {'All','Housekeeping'} , [all_samples_color;house_keeping_color], xlimit,ylimit);
+draw_groups_dist('Human6 axon guidance',{human6Results,axon_guidance_subset.scores,hoxGenes_subset.scores, paxGene.scores},...
+    {'All','Axon guidance','Hox','Pax'}, [all_samples_color;axon_guidance_color;hox_color;pax_color], xlimit,ylimit);
+draw_groups_dist('Human6 serotonin',{human6Results,serotoninGene.scores}, ...
+    {'All','Serotonin'}, [all_samples_color;pax_color], xlimit,ylimit);
+draw_groups_dist('Age',[{human6Results}, age_scores], ...
+    [{'All'}, age_labels], [all_samples_color;age_colors], xlimit,ylimit);
 
 end
+
 
 function significant_scores = getIndicesLargerThanThreshold(scores, randomScores, p_value, tail)
     randomScores = randomScores(:);
@@ -365,19 +279,6 @@ function scatterDots =  scatterScores(scoresA, geneInfoA, scoresB, geneInfoB, sh
     set(scatterDots,'SizeData',50);
 end
 
-function compareDistributions(distA, distB, nameA, nameB)
-    pvalue = ranksum(distA, distB);
-    meadianA = median(distA);
-    meadianB = median(distB);
-    fprintf('%s (median %g) - %s (median %g):\t\t %g both', nameA,meadianA,nameB,meadianB, pvalue);
-    pvalueright = ranksum(distA, distB,'tail','right');
-    fprintf(',\t\t %g right', pvalueright);
-    pvalueleft = ranksum(distA, distB,'tail','left');
-    fprintf(',\t\t %g left', pvalueleft);
-    fprintf('\n');
- 
-end
-
 function ploth = drawNumGenesVsRightPvalue(scores, randomScores)
 
  
@@ -413,15 +314,6 @@ how_many_larger = sum(scores > randomScoreSorted(index) );
 fprintf( '%d%% of the genes are larger (%d)\n', round( how_many_larger / length(scores)*100), how_many_larger);
 end
 
-function redoDistImage(xlimit)
-    xtick = -0.2:0.2:1;
-    ytick = -0.2:0.1:1;
-
-    set(gca,'Fontsize',20);         %set(gca,'xscale','log');
-    set(gca,'ytick',ytick); set(gca,'xtick',xtick);
-    xlim( xlimit)
-end
-
 function redoScatterImage(limit)
     xtick = -0.2:0.2:1;
     ytick = -0.2:0.2:1;
@@ -454,33 +346,3 @@ function scatterDots = scatterSubsetScores(scoresA, geneInfoA, scoresB, geneInfo
     
 end
 
-function [scoresA, gene_symbols, entrez_ids] = addScoresToSubset(scoresA, geneInfo, subset_entrez, subset_names)
-    [ind_for_A, ~] = mapGenes(geneInfo.gene_symbols,subset_names, geneInfo.entrez_ids, subset_entrez);
-        
-    scoresA = scoresA(ind_for_A);
-    gene_symbols = geneInfo.gene_symbols(ind_for_A);
-    entrez_ids = geneInfo.entrez_ids(ind_for_A);
-end
-
-function ploth = displayMultiDist(scores_cell, xlabel_string,legendStrings,range)
-    spacing = linspace(range(1),range(2),50);
-    vals_in_bins = nan(length(spacing), length(scores_cell));
-    for i =1 :length(scores_cell);
-        scores = scores_cell{i};
-        vals_in_bins(:,i) = histc(scores(:), spacing);
-%         vals_in_bins(:,i) = smooth(vals_in_bins(:,i), 0.1, 'moving');
-        vals_in_bins(:,i) = vals_in_bins(:,i) / sum(vals_in_bins(:,i));
-    end
-
-    vals_in_bins_smooth = smooth(vals_in_bins,0.02);
-    vals_in_bins_smooth = reshape(vals_in_bins_smooth,size(vals_in_bins));
-    
-    ploth = plot(spacing,  vals_in_bins_smooth    );
-    xlabel(xlabel_string,'fontsize',20);
-    h_legend = legend(legendStrings);
-    legend('boxoff');
-    set(h_legend,'FontSize',20);
-    set(gca,'box','off');
-    set(gca,'Fontsize',17);
-    set(ploth,'LineWidth',  2 );
-end

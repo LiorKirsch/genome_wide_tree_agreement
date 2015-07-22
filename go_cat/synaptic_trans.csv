@@ -1,0 +1,789 @@
+Gene ID,Symbol,Name
+2048,EPHB2,EPH receptor B2
+2049,EPHB3,EPH receptor B3
+10242,KCNMB2,potassium channel subfamily M regulatory beta subunit 2
+2055,CLN8,"ceroid-lipofuscinosis, neuronal 8 (epilepsy, progressive with mental retardation)"
+339983,NAT8L,"N-acetyltransferase 8-like (GCN5-related, putative)"
+18,ABAT,4-aminobutyrate aminotransferase
+2066,ERBB4,erb-b2 receptor tyrosine kinase 4
+83988,NCALD,neurocalcin delta
+51222,ZNF219,zinc finger protein 219
+90134,KCNH7,"potassium channel, voltage gated eag related subfamily H, member 7"
+57369,GJD2,"gap junction protein, delta 2, 36kDa"
+94235,GNG8,"guanine nucleotide binding protein (G protein), gamma 8"
+131096,KCNH8,"potassium channel, voltage gated eag related subfamily H, member 8"
+55327,LIN7C,lin-7 homolog C (C. elegans)
+4128,MAOA,monoamine oxidase A
+8224,SYN3,synapsin III
+4129,MAOB,monoamine oxidase B
+55330,BLOC1S4,"biogenesis of lysosomal organelles complex-1, subunit 4, cappuccino"
+40,ASIC2,acid sensing (proton gated) ion channel 2
+41,ASIC1,acid sensing (proton gated) ion channel 1
+43,ACHE,acetylcholinesterase (Yt blood group)
+51247,PAIP2,poly(A) binding protein interacting protein 2
+6195,RPS6KA1,"ribosomal protein S6 kinase, 90kDa, polypeptide 1"
+6196,RPS6KA2,"ribosomal protein S6 kinase, 90kDa, polypeptide 2"
+6197,RPS6KA3,"ribosomal protein S6 kinase, 90kDa, polypeptide 3"
+4155,MBP,myelin basic protein
+120892,LRRK2,leucine-rich repeat kinase 2
+57406,ABHD6,abhydrolase domain containing 6
+2119,ETV5,ets variant 5
+10316,NMUR1,neuromedin U receptor 1
+79953,SYNDIG1,synapse differentiation inducing 1
+88,ACTN2,"actinin, alpha 2"
+114781,BTBD9,BTB (POZ) domain containing 9
+6237,RRAS,related RAS viral (r-ras) oncogene homolog
+84062,DTNBP1,dystrobrevin binding protein 1
+4193,MDM2,"MDM2 proto-oncogene, E3 ubiquitin protein ligase"
+30819,KCNIP2,Kv channel interacting protein 2
+8292,COLQ,collagen-like tail subunit (single strand of homotrimer) of asymmetric acetylcholinesterase
+30820,KCNIP1,Kv channel interacting protein 1
+84073,MYCBPAP,MYCBP associated protein
+116841,SNAP47,"synaptosomal-associated protein, 47kDa"
+51305,KCNK9,"potassium channel, two pore domain subfamily K, member 9"
+107,ADCY1,adenylate cyclase 1 (brain)
+4204,MECP2,methyl CpG binding protein 2
+108,ADCY2,adenylate cyclase 2 (brain)
+109,ADCY3,adenylate cyclase 3
+8301,PICALM,phosphatidylinositol binding clathrin assembly protein
+53358,SHC3,SHC (Src homology 2 domain containing) transforming protein 3
+111,ADCY5,adenylate cyclase 5
+4208,MEF2C,myocyte enhancer factor 2C
+112,ADCY6,adenylate cyclase 6
+113,ADCY7,adenylate cyclase 7
+114,ADCY8,adenylate cyclase 8 (brain)
+112755,STX1B,syntaxin 1B
+115,ADCY9,adenylate cyclase 9
+116,ADCYAP1,adenylate cyclase activating polypeptide 1 (pituitary)
+4218,RAB8A,"RAB8A, member RAS oncogene family"
+57468,SLC12A5,"solute carrier family 12 (potassium/chloride transporter), member 5"
+10368,CACNG3,"calcium channel, voltage-dependent, gamma subunit 3"
+10369,CACNG2,"calcium channel, voltage-dependent, gamma subunit 2"
+134,ADORA1,adenosine A1 receptor
+135,ADORA2A,adenosine A2a receptor
+2185,PTK2B,protein tyrosine kinase 2 beta
+4233,MET,"MET proto-oncogene, receptor tyrosine kinase"
+6285,S100B,S100 calcium binding protein B
+148,ADRA1A,adrenoceptor alpha 1A
+153,ADRB1,adrenoceptor beta 1
+154,ADRB2,"adrenoceptor beta 2, surface"
+57502,NLGN4X,"neuroligin 4, X-linked"
+160,AP2A1,"adaptor-related protein complex 2, alpha 1 subunit"
+161,AP2A2,"adaptor-related protein complex 2, alpha 2 subunit"
+163,AP2B1,"adaptor-related protein complex 2, beta 1 subunit"
+6310,ATXN1,ataxin 1
+6324,SCN1B,"sodium channel, voltage gated, type I beta subunit"
+183,AGT,"angiotensinogen (serpin peptidase inhibitor, clade A, member 8)"
+6327,SCN2B,"sodium channel, voltage gated, type II beta subunit"
+4287,ATXN3,ataxin 3
+51399,TRAPPC4,trafficking protein particle complex 4
+6347,CCL2,chemokine (C-C motif) ligand 2
+57549,IGSF9,"immunoglobulin superfamily, member 9"
+8398,PLA2G6,"phospholipase A2, group VI (cytosolic, calcium-independent)"
+2257,FGF12,fibroblast growth factor 12
+2259,FGF14,fibroblast growth factor 14
+57555,NLGN2,neuroligin 2
+6357,CCL13,chemokine (C-C motif) ligand 13
+2263,FGFR2,fibroblast growth factor receptor 2
+217,ALDH2,aldehyde dehydrogenase 2 family (mitochondrial)
+10458,BAIAP2,BAI1-associated protein 2
+8411,EEA1,early endosome antigen 1
+4318,MMP9,matrix metallopeptidase 9
+223,ALDH9A1,"aldehyde dehydrogenase 9 family, member A1"
+8416,ANXA9,annexin A9
+8417,STX7,syntaxin 7
+6376,CX3CL1,chemokine (C-X3-C motif) ligand 1
+6386,SDCBP,syndecan binding protein (syntenin)
+200959,GABRR3,"gamma-aminobutyric acid (GABA) A receptor, rho 3 (gene/pseudogene)"
+8447,DOC2B,"double C2-like domains, beta"
+8448,DOC2A,"double C2-like domains, alpha"
+10497,UNC13B,unc-13 homolog B (C. elegans)
+4359,MPZ,myelin protein zero
+196883,ADCY4,adenylate cyclase 4
+273,AMPH,amphiphysin
+84254,CAMKK1,"calcium/calmodulin-dependent protein kinase kinase 1, alpha"
+55584,CHRNA9,"cholinergic receptor, nicotinic, alpha 9 (neuronal)"
+2339,FNTA,"farnesyltransferase, CAAX box, alpha"
+8484,GALR3,galanin receptor 3
+254263,CNIH2,cornichon family AMPA receptor auxiliary protein 2
+6453,ITSN1,intersectin 1 (SH3 domain protein)
+203062,TSNARE1,t-SNARE domain containing 1
+6456,SH3GL2,SH3-domain GRB2-like 2
+57657,HCN3,hyperpolarization activated cyclic nucleotide gated potassium channel 3
+320,APBA1,"amyloid beta (A4) precursor protein-binding, family A, member 1"
+321,APBA2,"amyloid beta (A4) precursor protein-binding, family A, member 2"
+22849,CPEB3,cytoplasmic polyadenylation element binding protein 3
+8514,KCNAB2,"potassium channel, voltage gated subfamily A regulatory beta subunit 2"
+22859,ADGRL1,adhesion G protein-coupled receptor L1
+57679,ALS2,amyotrophic lateral sclerosis 2 (juvenile)
+22871,NLGN1,neuroligin 1
+8536,CAMK1,calcium/calmodulin-dependent protein kinase I
+348,APOE,apolipoprotein E
+8541,PPFIA3,"protein tyrosine phosphatase, receptor type, f polypeptide (PTPRF), interacting protein (liprin), alpha 3"
+351,APP,amyloid beta (A4) precursor protein
+6495,SIX1,SIX homeobox 1
+8546,AP3B1,"adaptor-related protein complex 3, beta 1 subunit"
+22883,CLSTN1,calsyntenin 1
+6505,SLC1A1,"solute carrier family 1 (neuronal/epithelial high affinity glutamate transporter, system Xag), member 1"
+26985,AP3M1,"adaptor-related protein complex 3, mu 1 subunit"
+6506,SLC1A2,"solute carrier family 1 (glial high affinity glutamate transporter), member 2"
+57706,DENND1A,DENN/MADD domain containing 1A
+6507,SLC1A3,"solute carrier family 1 (glial high affinity glutamate transporter), member 3"
+282991,BLOC1S2,"biogenesis of lysosomal organelles complex-1, subunit 2"
+6509,SLC1A4,"solute carrier family 1 (glutamate/neutral amino acid transporter), member 4"
+6511,SLC1A6,"solute carrier family 1 (high affinity aspartate/glutamate transporter), member 6"
+10611,PDLIM5,PDZ and LIM domain 5
+22899,ARHGEF15,Rho guanine nucleotide exchange factor (GEF) 15
+57717,PCDHB16,protocadherin beta 16
+375,ARF1,ADP-ribosylation factor 1
+6529,SLC6A1,"solute carrier family 6 (neurotransmitter transporter), member 1"
+6530,SLC6A2,"solute carrier family 6 (neurotransmitter transporter), member 2"
+6531,SLC6A3,"solute carrier family 6 (neurotransmitter transporter), member 3"
+27012,KCNV1,"potassium channel, voltage gated modifier subfamily V, member 1"
+6532,SLC6A4,"solute carrier family 6 (neurotransmitter transporter), member 4"
+6538,SLC6A11,"solute carrier family 6 (neurotransmitter transporter), member 11"
+6539,SLC6A12,"solute carrier family 6 (neurotransmitter transporter), member 12"
+6540,SLC6A13,"solute carrier family 6 (neurotransmitter transporter), member 13"
+27020,NPTN,neuroplastin
+10636,RGS14,regulator of G-protein signaling 14
+409,ARRB2,"arrestin, beta 2"
+22941,SHANK2,SH3 and multiple ankyrin repeat domains 2
+63908,NAPB,"N-ethylmaleimide-sensitive factor attachment protein, beta"
+22953,P2RX2,"purinergic receptor P2X, ligand gated ion channel, 2"
+6570,SLC18A1,"solute carrier family 18 (vesicular monoamine transporter), member 1"
+8618,CADPS,Ca++-dependent secretion activator
+6571,SLC18A2,"solute carrier family 18 (vesicular monoamine transporter), member 2"
+63915,BLOC1S5,"biogenesis of lysosomal organelles complex-1, subunit 5, muted"
+6572,SLC18A3,"solute carrier family 18 (vesicular acetylcholine transporter), member 3"
+8620,NPFF,neuropeptide FF-amide peptide precursor
+10675,CSPG5,chondroitin sulfate proteoglycan 5 (neuroglycan C)
+6581,SLC22A3,"solute carrier family 22 (organic cation transporter), member 3"
+6582,SLC22A2,"solute carrier family 22 (organic cation transporter), member 2"
+6585,SLIT1,slit homolog 1 (Drosophila)
+2492,FSHR,follicle stimulating hormone receptor
+4544,MTNR1B,melatonin receptor 1B
+346562,GNAT3,"guanine nucleotide binding protein, alpha transducing 3"
+22986,SORCS3,sortilin-related VPS10 domain containing receptor 3
+80331,DNAJC5,"DnaJ (Hsp40) homolog, subfamily C, member 5"
+117195,MRGPRX3,"MAS-related GPR, member X3"
+22987,SV2C,synaptic vesicle glycoprotein 2C
+27092,CACNG4,"calcium channel, voltage-dependent, gamma subunit 4"
+22997,IGSF9B,"immunoglobulin superfamily, member 9B"
+66004,LYNX1,Ly6/neurotoxin 1
+27094,KCNMB3,potassium channel subfamily M regulatory beta subunit 3
+22999,RIMS1,regulating synaptic membrane exocytosis 1
+6616,SNAP25,"synaptosomal-associated protein, 25kDa"
+6620,SNCB,"synuclein, beta"
+477,ATP1A2,"ATPase, Na+/K+ transporting, alpha 2 polypeptide"
+6622,SNCA,"synuclein, alpha (non A4 component of amyloid precursor)"
+6623,SNCG,"synuclein, gamma (breast cancer-specific protein 1)"
+84446,BRSK1,BR serine/threonine kinase 1
+491,ATP2B2,"ATPase, Ca++ transporting, plasma membrane 2"
+27115,PDE7B,phosphodiesterase 7B
+4593,MUSK,"muscle, skeletal, receptor tyrosine kinase"
+23025,UNC13A,unc-13 homolog A (C. elegans)
+2550,GABBR1,"gamma-aminobutyric acid (GABA) B receptor, 1"
+2554,GABRA1,"gamma-aminobutyric acid (GABA) A receptor, alpha 1"
+2555,GABRA2,"gamma-aminobutyric acid (GABA) A receptor, alpha 2"
+2556,GABRA3,"gamma-aminobutyric acid (GABA) A receptor, alpha 3"
+2557,GABRA4,"gamma-aminobutyric acid (GABA) A receptor, alpha 4"
+27133,KCNH5,"potassium channel, voltage gated eag related subfamily H, member 5"
+2558,GABRA5,"gamma-aminobutyric acid (GABA) A receptor, alpha 5"
+2559,GABRA6,"gamma-aminobutyric acid (GABA) A receptor, alpha 6"
+2560,GABRB1,"gamma-aminobutyric acid (GABA) A receptor, beta 1"
+2561,GABRB2,"gamma-aminobutyric acid (GABA) A receptor, beta 2"
+2562,GABRB3,"gamma-aminobutyric acid (GABA) A receptor, beta 3"
+2563,GABRD,"gamma-aminobutyric acid (GABA) A receptor, delta"
+10755,GIPC1,"GIPC PDZ domain containing family, member 1"
+2565,GABRG1,"gamma-aminobutyric acid (GABA) A receptor, gamma 1"
+2566,GABRG2,"gamma-aminobutyric acid (GABA) A receptor, gamma 2"
+2567,GABRG3,"gamma-aminobutyric acid (GABA) A receptor, gamma 3"
+2569,GABRR1,"gamma-aminobutyric acid (GABA) A receptor, rho 1"
+2570,GABRR2,"gamma-aminobutyric acid (GABA) A receptor, rho 2"
+2571,GAD1,"glutamate decarboxylase 1 (brain, 67kDa)"
+2572,GAD2,"glutamate decarboxylase 2 (pancreatic islets and brain, 65kDa)"
+10769,PLK2,polo-like kinase 2
+84502,JPH4,junctophilin 4
+51738,GHRL,ghrelin/obestatin prepropeptide
+2587,GALR1,galanin receptor 1
+27165,GLS2,"glutaminase 2 (liver, mitochondrial)"
+4644,MYO5A,"myosin VA (heavy chain 12, myoxin)"
+4646,MYO6,myosin VI
+10791,VAMP5,vesicle-associated membrane protein 5
+27185,DISC1,disrupted in schizophrenia 1
+23095,KIF1B,kinesin family member 1B
+6712,SPTBN2,"spectrin, beta, non-erythrocytic 2"
+8766,RAB11A,"RAB11A, member RAS oncogene family"
+10814,CPLX2,complexin 2
+10815,CPLX1,complexin 1
+6722,SRF,serum response factor (c-fos serum response element-binding transcription factor)
+8775,NAPA,"N-ethylmaleimide-sensitive factor attachment protein, alpha"
+590,BCHE,butyrylcholinesterase
+2644,GCHFR,GTP cyclohydrolase I feedback regulator
+2647,BLOC1S1,"biogenesis of lysosomal organelles complex-1, subunit 1"
+51804,SIX4,SIX homeobox 4
+6750,SST,somatostatin
+6751,SSTR1,somatostatin receptor 1
+6752,SSTR2,somatostatin receptor 2
+610,HCN2,hyperpolarization activated cyclic nucleotide gated potassium channel 2
+6754,SSTR4,somatostatin receptor 4
+6755,SSTR5,somatostatin receptor 5
+64101,LRRC4,leucine rich repeat containing 4
+399968,PATE4,prostate and testis expressed 4
+8811,GALR2,galanin receptor 2
+2668,GDNF,glial cell derived neurotrophic factor
+2670,GFAP,glial fibrillary acidic protein
+6770,STAR,steroidogenic acute regulatory protein
+23154,NCDN,neurochondrin
+627,BDNF,brain-derived neurotrophic factor
+8825,LIN7A,lin-7 homolog A (C. elegans)
+10874,NMU,neuromedin U
+4734,NEDD4,"neural precursor cell expressed, developmentally down-regulated 4, E3 ubiquitin protein ligase"
+8831,SYNGAP1,synaptic Ras GTPase activating protein 1
+64130,LIN7B,lin-7 homolog B (C. elegans)
+338567,KCNK18,"potassium channel, two pore domain subfamily K, member 18"
+2693,GHSR,growth hormone secretagogue receptor
+2695,GIP,gastric inhibitory polypeptide
+4747,NEFL,"neurofilament, light polypeptide"
+6804,STX1A,syntaxin 1A (brain)
+27286,SRPX2,"sushi-repeat containing protein, X-linked 2"
+4761,NEUROD2,neuronal differentiation 2
+6809,STX3,syntaxin 3
+6810,STX4,syntaxin 4
+4763,NF1,neurofibromin 1
+84634,KISS1R,KISS1 receptor
+6812,STXBP1,syntaxin binding protein 1
+10911,UTS2,urotensin 2
+8864,PER2,period circadian clock 2
+673,BRAF,"B-Raf proto-oncogene, serine/threonine kinase"
+55970,GNG12,"guanine nucleotide binding protein (G protein), gamma 12"
+8867,SYNJ1,synaptojanin 1
+4776,NFATC4,"nuclear factor of activated T-cells, cytoplasmic, calcineurin-dependent 4"
+8877,SPHK1,sphingosine kinase 1
+6833,ABCC8,"ATP-binding cassette, sub-family C (CFTR/MRP), member 8"
+2741,GLRA1,"glycine receptor, alpha 1"
+2743,GLRB,"glycine receptor, beta"
+2744,GLS,glutaminase
+6843,VAMP1,vesicle-associated membrane protein 1 (synaptobrevin 1)
+6844,VAMP2,vesicle-associated membrane protein 2 (synaptobrevin 2)
+23228,PLCL2,phospholipase C-like 2
+23229,ARHGEF9,Cdc42 guanine nucleotide exchange factor (GEF) 9
+2752,GLUL,glutamate-ammonia ligase
+8898,MTMR2,myotubularin related protein 2
+706,TSPO,translocator protein (18kDa)
+27330,RPS6KA6,"ribosomal protein S6 kinase, 90kDa, polypeptide 6"
+10947,AP3M2,"adaptor-related protein complex 3, mu 2 subunit"
+4803,NGF,nerve growth factor (beta polypeptide)
+4804,NGFR,nerve growth factor receptor
+23236,PLCB1,"phospholipase C, beta 1 (phosphoinositide-specific)"
+6853,SYN1,synapsin I
+23237,ARC,activity-regulated cytoskeleton-associated protein
+6854,SYN2,synapsin II
+6855,SYP,synaptophysin
+6856,SYPL1,synaptophysin-like 1
+6857,SYT1,synaptotagmin I
+6860,SYT4,synaptotagmin IV
+6861,SYT5,synaptotagmin V
+6863,TAC1,"tachykinin, precursor 1"
+6865,TACR2,tachykinin receptor 2
+8913,CACNA1G,"calcium channel, voltage-dependent, T type, alpha 1G subunit"
+27345,KCNMB4,potassium channel subfamily M regulatory beta subunit 4
+2770,GNAI1,"guanine nucleotide binding protein (G protein), alpha inhibiting activity polypeptide 1"
+2771,GNAI2,"guanine nucleotide binding protein (G protein), alpha inhibiting activity polypeptide 2"
+2773,GNAI3,"guanine nucleotide binding protein (G protein), alpha inhibiting activity polypeptide 3"
+6869,TACR1,tachykinin receptor 1
+2774,GNAL,"guanine nucleotide binding protein (G protein), alpha activating activity polypeptide, olfactory type"
+6870,TACR3,tachykinin receptor 3
+84694,GJA10,"gap junction protein, alpha 10, 62kDa"
+4829,NMBR,neuromedin B receptor
+2782,GNB1,"guanine nucleotide binding protein (G protein), beta polypeptide 1"
+8927,BSN,bassoon presynaptic cytomatrix protein
+2783,GNB2,"guanine nucleotide binding protein (G protein), beta polypeptide 2"
+2784,GNB3,"guanine nucleotide binding protein (G protein), beta polypeptide 3"
+2785,GNG3,"guanine nucleotide binding protein (G protein), gamma 3"
+2786,GNG4,"guanine nucleotide binding protein (G protein), gamma 4"
+2787,GNG5,"guanine nucleotide binding protein (G protein), gamma 5"
+2788,GNG7,"guanine nucleotide binding protein (G protein), gamma 7"
+2790,GNG10,"guanine nucleotide binding protein (G protein), gamma 10"
+2792,GNGT1,"guanine nucleotide binding protein (G protein), gamma transducing activity polypeptide 1"
+2793,GNGT2,"guanine nucleotide binding protein (G protein), gamma transducing activity polypeptide 2"
+4842,NOS1,nitric oxide synthase 1 (neuronal)
+8938,BAIAP3,BAI1-associated protein 3
+747,DAGLA,"diacylglycerol lipase, alpha"
+8943,AP3D1,"adaptor-related protein complex 3, delta 1 subunit"
+4852,NPY,neuropeptide Y
+6900,CNTN2,contactin 2 (axonal)
+23287,AGTPBP1,ATP/GTP binding protein 1
+760,CA2,carbonic anhydrase II
+4857,NOVA1,neuro-oncological ventral antigen 1
+766,CA7,carbonic anhydrase VII
+221955,DAGLB,"diacylglycerol lipase, beta"
+773,CACNA1A,"calcium channel, voltage-dependent, P/Q type, alpha 1A subunit"
+774,CACNA1B,"calcium channel, voltage-dependent, N type, alpha 1B subunit"
+775,CACNA1C,"calcium channel, voltage-dependent, L type, alpha 1C subunit"
+2824,GPM6B,glycoprotein M6B
+152330,CNTN4,contactin 4
+777,CACNA1E,"calcium channel, voltage-dependent, R type, alpha 1E subunit"
+8973,CHRNA6,"cholinergic receptor, nicotinic, alpha 6 (neuronal)"
+783,CACNB2,"calcium channel, voltage-dependent, beta 2 subunit"
+2831,NPBWR1,neuropeptides B/W receptor 1
+784,CACNB3,"calcium channel, voltage-dependent, beta 3 subunit"
+785,CACNB4,"calcium channel, voltage-dependent, beta 4 subunit"
+4884,NPTX1,neuronal pentraxin I
+23316,CUX2,cut-like homeobox 2
+4885,NPTX2,neuronal pentraxin II
+4886,NPY1R,neuropeptide Y receptor Y1
+4887,NPY2R,neuropeptide Y receptor Y2
+793,CALB1,"calbindin 1, 28kDa"
+4889,NPY5R,neuropeptide Y receptor Y5
+64284,RAB17,"RAB17, member RAS oncogene family"
+4893,NRAS,neuroblastoma RAS viral (v-ras) oncogene homolog
+2852,GPER1,G protein-coupled estrogen receptor 1
+808,CALM3,"calmodulin 3 (phosphorylase kinase, delta)"
+4905,NSF,N-ethylmaleimide-sensitive factor
+9001,HAP1,huntingtin-associated protein 1
+4908,NTF3,neurotrophin 3
+814,CAMK4,calcium/calmodulin-dependent protein kinase IV
+815,CAMK2A,calcium/calmodulin-dependent protein kinase II alpha
+816,CAMK2B,calcium/calmodulin-dependent protein kinase II beta
+389941,C1QL3,"complement component 1, q subcomponent-like 3"
+348980,HCN1,hyperpolarization activated cyclic nucleotide gated potassium channel 1
+817,CAMK2D,calcium/calmodulin-dependent protein kinase II delta
+818,CAMK2G,calcium/calmodulin-dependent protein kinase II gamma
+4914,NTRK1,"neurotrophic tyrosine kinase, receptor, type 1"
+4915,NTRK2,"neurotrophic tyrosine kinase, receptor, type 2"
+821,CANX,calnexin
+27445,PCLO,piccolo presynaptic cytomatrix protein
+56122,PCDHB14,protocadherin beta 14
+4923,NTSR1,neurotensin receptor 1 (high affinity)
+56123,PCDHB13,protocadherin beta 13
+11069,RAPGEF4,Rap guanine nucleotide exchange factor (GEF) 4
+56125,PCDHB11,protocadherin beta 11
+56126,PCDHB10,protocadherin beta 10
+56127,PCDHB9,protocadherin beta 9
+56128,PCDHB8,protocadherin beta 8
+56130,PCDHB6,protocadherin beta 6
+56131,PCDHB4,protocadherin beta 4
+56132,PCDHB3,protocadherin beta 3
+56133,PCDHB2,protocadherin beta 2
+4935,GPR143,G protein-coupled receptor 143
+2890,GRIA1,"glutamate receptor, ionotropic, AMPA 1"
+2891,GRIA2,"glutamate receptor, ionotropic, AMPA 2"
+2892,GRIA3,"glutamate receptor, ionotropic, AMPA 3"
+2893,GRIA4,"glutamate receptor, ionotropic, AMPA 4"
+2894,GRID1,"glutamate receptor, ionotropic, delta 1"
+9038,TAAR5,trace amine associated receptor 5
+2895,GRID2,"glutamate receptor, ionotropic, delta 2"
+2896,GRN,granulin
+2897,GRIK1,"glutamate receptor, ionotropic, kainate 1"
+2898,GRIK2,"glutamate receptor, ionotropic, kainate 2"
+2899,GRIK3,"glutamate receptor, ionotropic, kainate 3"
+2900,GRIK4,"glutamate receptor, ionotropic, kainate 4"
+2901,GRIK5,"glutamate receptor, ionotropic, kainate 5"
+2902,GRIN1,"glutamate receptor, ionotropic, N-methyl D-aspartate 1"
+11094,CACFD1,calcium channel flower domain containing 1
+2903,GRIN2A,"glutamate receptor, ionotropic, N-methyl D-aspartate 2A"
+2904,GRIN2B,"glutamate receptor, ionotropic, N-methyl D-aspartate 2B"
+127833,SYT2,synaptotagmin II
+2905,GRIN2C,"glutamate receptor, ionotropic, N-methyl D-aspartate 2C"
+858,CAV2,caveolin 2
+2906,GRIN2D,"glutamate receptor, ionotropic, N-methyl D-aspartate 2D"
+2908,NR3C1,"nuclear receptor subfamily 3, group C, member 1 (glucocorticoid receptor)"
+2911,GRM1,"glutamate receptor, metabotropic 1"
+2912,GRM2,"glutamate receptor, metabotropic 2"
+170850,KCNG3,"potassium channel, voltage gated modifier subfamily G, member 3"
+2913,GRM3,"glutamate receptor, metabotropic 3"
+80736,SLC44A4,"solute carrier family 44, member 4"
+2914,GRM4,"glutamate receptor, metabotropic 4"
+23394,ADNP,activity-dependent neuroprotector homeobox
+2915,GRM5,"glutamate receptor, metabotropic 5"
+2916,GRM6,"glutamate receptor, metabotropic 6"
+23396,PIP5K1C,"phosphatidylinositol-4-phosphate 5-kinase, type I, gamma"
+869,CBLN1,cerebellin 1 precursor
+2917,GRM7,"glutamate receptor, metabotropic 7"
+2918,GRM8,"glutamate receptor, metabotropic 8"
+2925,GRPR,gastrin-releasing peptide receptor
+4975,OMP,olfactory marker protein
+2932,GSK3B,glycogen synthase kinase 3 beta
+23413,NCS1,neuronal calcium sensor 1
+4983,OPHN1,oligophrenin 1
+23415,KCNH4,"potassium channel, voltage gated eag related subfamily H, member 4"
+887,CCKBR,cholecystokinin B receptor
+23416,KCNH3,"potassium channel, voltage gated eag related subfamily H, member 3"
+4986,OPRK1,"opioid receptor, kappa 1"
+4988,OPRM1,"opioid receptor, mu 1"
+23426,GRIP1,glutamate receptor interacting protein 1
+729993,SHISA9,shisa family member 9
+9094,UNC119,unc-119 homolog (C. elegans)
+9097,USP14,ubiquitin specific peptidase 14 (tRNA-guanine transglycosylase)
+7054,TH,tyrosine hydroxylase
+7058,THBS2,thrombospondin 2
+5020,OXT,oxytocin/neurophysin I prepropeptide
+5021,OXTR,oxytocin receptor
+5023,P2RX1,"purinergic receptor P2X, ligand gated ion channel, 1"
+5024,P2RX3,"purinergic receptor P2X, ligand gated ion channel, 3"
+594857,NPS,neuropeptide S
+5025,P2RX4,"purinergic receptor P2X, ligand gated ion channel, 4"
+84896,ATAD1,"ATPase family, AAA domain containing 1"
+5027,P2RX7,"purinergic receptor P2X, ligand gated ion channel, 7"
+5032,P2RY11,"purinergic receptor P2Y, G-protein coupled, 11"
+220074,LRTOMT,leucine rich transmembrane and O-methyltransferase domain containing
+11178,LZTS1,"leucine zipper, putative tumor suppressor 1"
+9132,KCNQ4,"potassium channel, voltage gated KQT-like subfamily Q, member 4"
+5037,PEBP1,phosphatidylethanolamine binding protein 1
+594855,CPLX3,complexin 3
+93107,KCNG4,"potassium channel, voltage gated modifier subfamily G, member 4"
+11188,NISCH,nischarin
+80823,BHLHB9,"basic helix-loop-helix domain containing, class B, 9"
+5048,PAFAH1B1,"platelet-activating factor acetylhydrolase 1b, regulatory subunit 1 (45kDa)"
+952,CD38,CD38 molecule
+9145,SYNGR1,synaptogyrin 1
+9148,NEURL1,neuralized E3 ubiquitin protein ligase 1
+5053,PAH,phenylalanine hydroxylase
+7101,NR2E1,"nuclear receptor subfamily 2, group E, member 1"
+54207,KCNK10,"potassium channel, two pore domain subfamily K, member 10"
+9152,SLC6A5,"solute carrier family 6 (neurotransmitter transporter), member 5"
+11202,KLK8,kallikrein-related peptidase 8
+5071,PARK2,parkin RBR E3 ubiquitin protein ligase
+7124,TNF,tumor necrosis factor
+80852,GRIP2,glutamate receptor interacting protein 2
+9177,HTR3B,"5-hydroxytryptamine (serotonin) receptor 3B, ionotropic"
+23513,SCRIB,scribbled planar cell polarity protein
+991,CDC20,cell division cycle 20
+998,CDC42,cell division cycle 42
+7143,TNR,tenascin R
+375790,AGRN,agrin
+5100,PCDH8,protocadherin 8
+9196,KCNAB3,"potassium channel, voltage gated subfamily A regulatory beta subunit 3"
+11245,GPR176,G protein-coupled receptor 176
+1006,CDH8,"cadherin 8, type 2"
+3060,HCRT,hypocretin (orexin) neuropeptide precursor
+3061,HCRTR1,hypocretin (orexin) receptor 1
+3062,HCRTR2,hypocretin (orexin) receptor 2
+23542,MAPK8IP2,mitogen-activated protein kinase 8 interacting protein 2
+11255,HRH3,histamine receptor H3
+3064,HTT,huntingtin
+64506,CPEB1,cytoplasmic polyadenylation element binding protein 1
+9211,LGI1,"leucine-rich, glioma inactivated 1"
+1020,CDK5,cyclin-dependent kinase 5
+60412,EXOC4,exocyst complex component 4
+23551,RASD2,"RASD family, member 2"
+23557,SNAPIN,SNAP-associated protein
+3084,NRG1,neuregulin 1
+9228,DLGAP2,"discs, large (Drosophila) homolog-associated protein 2"
+9229,DLGAP1,"discs, large (Drosophila) homolog-associated protein 1"
+23566,LPAR3,lysophosphatidic acid receptor 3
+5153,PDE1B,"phosphodiesterase 1B, calmodulin-dependent"
+9254,CACNA2D2,"calcium channel, voltage-dependent, alpha 2/delta subunit 2"
+5170,PDPK1,3-phosphoinositide dependent protein kinase 1
+11315,PARK7,parkinson protein 7
+5173,PDYN,prodynorphin
+54331,GNG2,"guanine nucleotide binding protein (G protein), gamma 2"
+60482,SLC5A7,"solute carrier family 5 (sodium/choline cotransporter), member 7"
+23620,NTSR2,neurotensin receptor 2
+29767,TMOD2,tropomodulin 2 (neuronal)
+11337,GABARAP,GABA(A) receptor-associated protein
+9294,S1PR2,sphingosine-1-phosphate receptor 2
+1103,CHAT,choline O-acetyltransferase
+11343,MGLL,monoglyceride lipase
+9312,KCNB2,"potassium channel, voltage gated Shab related subfamily B, member 2"
+5217,PFN2,profilin 2
+1128,CHRM1,"cholinergic receptor, muscarinic 1"
+3176,HNMT,histamine N-methyltransferase
+1129,CHRM2,"cholinergic receptor, muscarinic 2"
+1131,CHRM3,"cholinergic receptor, muscarinic 3"
+1132,CHRM4,"cholinergic receptor, muscarinic 4"
+1133,CHRM5,"cholinergic receptor, muscarinic 5"
+1134,CHRNA1,"cholinergic receptor, nicotinic, alpha 1 (muscle)"
+1135,CHRNA2,"cholinergic receptor, nicotinic, alpha 2 (neuronal)"
+1136,CHRNA3,"cholinergic receptor, nicotinic, alpha 3 (neuronal)"
+1137,CHRNA4,"cholinergic receptor, nicotinic, alpha 4 (neuronal)"
+1138,CHRNA5,"cholinergic receptor, nicotinic, alpha 5 (neuronal)"
+1139,CHRNA7,"cholinergic receptor, nicotinic, alpha 7 (neuronal)"
+1140,CHRNB1,"cholinergic receptor, nicotinic, beta 1 (muscle)"
+1141,CHRNB2,"cholinergic receptor, nicotinic, beta 2 (neuronal)"
+1142,CHRNB3,"cholinergic receptor, nicotinic, beta 3 (neuronal)"
+1143,CHRNB4,"cholinergic receptor, nicotinic, beta 4 (neuronal)"
+1144,CHRND,"cholinergic receptor, nicotinic, delta (muscle)"
+23673,STX12,syntaxin 12
+1145,CHRNE,"cholinergic receptor, nicotinic, epsilon (muscle)"
+1146,CHRNG,"cholinergic receptor, nicotinic, gamma (muscle)"
+9341,VAMP3,vesicle-associated membrane protein 3
+54407,SLC38A2,"solute carrier family 38, member 2"
+81033,KCNH6,"potassium channel, voltage gated eag related subfamily H, member 6"
+54413,NLGN3,neuroligin 3
+158866,ZDHHC15,"zinc finger, DHHC-type containing 15"
+9362,CPNE6,copine VI (neuronal)
+1173,AP2M1,"adaptor-related protein complex 2, mu 1 subunit"
+5270,SERPINE2,"serpin peptidase inhibitor, clade E (nexin, plasminogen activator inhibitor type 1), member 2"
+1175,AP2S1,"adaptor-related protein complex 2, sigma 1 subunit"
+1176,AP3S1,"adaptor-related protein complex 3, sigma 1 subunit"
+9369,NRXN3,neurexin 3
+9370,ADIPOQ,"adiponectin, C1Q and collagen domain containing"
+56479,KCNQ5,"potassium channel, voltage gated KQT-like subfamily Q, member 5"
+9378,NRXN1,neurexin 1
+9379,NRXN2,neurexin 2
+9381,OTOF,otoferlin
+7336,UBE2V2,ubiquitin-conjugating enzyme E2 variant 2
+25769,SLC24A2,"solute carrier family 24 (sodium/potassium/calcium exchanger), member 2"
+1201,CLN3,"ceroid-lipofuscinosis, neuronal 3"
+7349,UCN,urocortin
+29882,ANAPC2,anaphase promoting complex subunit 2
+3265,HRAS,Harvey rat sarcoma viral oncogene homolog
+3269,HRH1,histamine receptor H1
+3274,HRH2,histamine receptor H2
+5327,PLAT,"plasminogen activator, tissue"
+9424,KCNK6,"potassium channel, two pore domain subfamily K, member 6"
+5330,PLCB2,"phospholipase C, beta 2"
+5331,PLCB3,"phospholipase C, beta 3 (phosphatidylinositol-specific)"
+5334,PLCL1,phospholipase C-like 1
+5354,PLP1,proteolipid protein 1
+3312,HSPA8,heat shock 70kDa protein 8
+9456,HOMER1,homer scaffolding protein 1
+1267,CNP,"2',3'-cyclic nucleotide 3' phosphodiesterase"
+1268,CNR1,cannabinoid receptor 1 (brain)
+1269,CNR2,cannabinoid receptor 2 (macrophage)
+5367,PMCH,pro-melanin-concentrating hormone
+9463,PICK1,protein interacting with PRKCA 1
+7416,VDAC1,voltage-dependent anion channel 1
+5368,PNOC,prepronociceptin
+5370,PMCHL2,"pro-melanin-concentrating hormone-like 2, pseudogene"
+7419,VDAC3,voltage-dependent anion channel 3
+5376,PMP22,peripheral myelin protein 22
+7425,VGF,VGF nerve growth factor inducible
+7433,VIPR1,vasoactive intestinal peptide receptor 1
+3351,HTR1B,"5-hydroxytryptamine (serotonin) receptor 1B, G protein-coupled"
+9495,AKAP5,A kinase (PRKA) anchor protein 5
+3352,HTR1D,"5-hydroxytryptamine (serotonin) receptor 1D, G protein-coupled"
+3354,HTR1E,"5-hydroxytryptamine (serotonin) receptor 1E, G protein-coupled"
+3355,HTR1F,"5-hydroxytryptamine (serotonin) receptor 1F, G protein-coupled"
+3356,HTR2A,"5-hydroxytryptamine (serotonin) receptor 2A, G protein-coupled"
+3358,HTR2C,"5-hydroxytryptamine (serotonin) receptor 2C, G protein-coupled"
+3359,HTR3A,"5-hydroxytryptamine (serotonin) receptor 3A, ionotropic"
+1312,COMT,catechol-O-methyltransferase
+3360,HTR4,"5-hydroxytryptamine (serotonin) receptor 4, G protein-coupled"
+3362,HTR6,"5-hydroxytryptamine (serotonin) receptor 6, G protein-coupled"
+3363,HTR7,"5-hydroxytryptamine (serotonin) receptor 7, adenylate cyclase-coupled"
+5413,SEPT5,septin 5
+29993,PACSIN1,protein kinase C and casein kinase substrate in neurons 1
+1325,CORT,cortistatin
+7474,WNT5A,"wingless-type MMTV integration site family, member 5A"
+7476,WNT7A,"wingless-type MMTV integration site family, member 7A"
+3382,ICA1,"islet cell autoantigen 1, 69kDa"
+50488,MINK1,misshapen-like kinase 1
+7494,XBP1,X-box binding protein 1
+9546,APBA3,"amyloid beta (A4) precursor protein-binding, family A, member 3"
+56659,KCNK13,"potassium channel, two pore domain subfamily K, member 13"
+64854,USP46,ubiquitin specific peptidase 46
+56666,PANX2,pannexin 2
+9568,GABBR2,"gamma-aminobutyric acid (GABA) B receptor, 2"
+25953,PNKD,paroxysmal nonkinesigenic dyskinesia
+339302,CPLX4,complexin 4
+1385,CREB1,cAMP responsive element binding protein 1
+7532,YWHAG,"tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein, gamma"
+7533,YWHAH,"tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein, eta"
+85358,SHANK3,SH3 and multiple ankyrin repeat domains 3
+1392,CRH,corticotropin releasing hormone
+1393,CRHBP,corticotropin releasing hormone binding protein
+85360,SYDE1,"synapse defective 1, Rho GTPase, homolog 1 (C. elegans)"
+1394,CRHR1,corticotropin releasing hormone receptor 1
+1395,CRHR2,corticotropin releasing hormone receptor 2
+124274,GPR139,G protein-coupled receptor 139
+85366,MYLK2,myosin light chain kinase 2
+3458,IFNG,"interferon, gamma"
+140679,SLC32A1,"solute carrier family 32 (GABA vesicular transporter), member 1"
+9607,CARTPT,CART prepropeptide
+9610,RIN1,Ras and Rab interactor 1
+9620,CELSR1,"cadherin, EGF LAG seven-pass G-type receptor 1"
+56729,RETN,resistin
+5530,PPP3CA,"protein phosphatase 3, catalytic subunit, alpha isozyme"
+9627,SNCAIP,"synuclein, alpha interacting protein"
+26012,NSMF,NMDA receptor synaptonuclear signaling and neuronal migration factor
+5532,PPP3CB,"protein phosphatase 3, catalytic subunit, beta isozyme"
+5538,PPT1,palmitoyl-protein thioesterase 1
+114088,TRIM9,tripartite motif containing 9
+26037,SIPA1L1,signal-induced proliferation-associated 1 like 1
+1463,NCAN,neurocan
+140730,RIMS4,regulating synaptic membrane exocytosis 4
+26045,LRRTM2,leucine rich repeat transmembrane neuronal 2
+5566,PRKACA,"protein kinase, cAMP-dependent, catalytic, alpha"
+85439,STON2,stonin 2
+5567,PRKACB,"protein kinase, cAMP-dependent, catalytic, beta"
+26050,SLITRK5,"SLIT and NTRK-like family, member 5"
+85445,CNTNAP4,contactin associated protein-like 4
+5578,PRKCA,"protein kinase C, alpha"
+5579,PRKCB,"protein kinase C, beta"
+5581,PRKCE,"protein kinase C, epsilon"
+388552,BLOC1S3,"biogenesis of lysosomal organelles complex-1, subunit 3"
+5582,PRKCG,"protein kinase C, gamma"
+5590,PRKCZ,"protein kinase C, zeta"
+1496,CTNNA2,"catenin (cadherin-associated protein), alpha 2"
+5594,MAPK1,mitogen-activated protein kinase 1
+1499,CTNNB1,"catenin (cadherin-associated protein), beta 1, 88kDa"
+1501,CTNND2,"catenin (cadherin-associated protein), delta 2"
+9693,RAPGEF2,Rap guanine nucleotide exchange factor (GEF) 2
+93664,CADPS2,Ca++-dependent secretion activator 2
+9699,RIMS2,regulating synaptic membrane exocytosis 2
+65018,PINK1,PTEN induced putative kinase 1
+153090,DAB2IP,DAB2 interacting protein
+5649,RELN,reelin
+9746,CLSTN3,calsyntenin 3
+56853,CELF4,"CUGBP, Elav-like family member 4"
+9751,SNPH,syntaphilin
+9758,FRMPD4,FERM and PDZ domain containing 4
+5663,PSEN1,presenilin 1
+5664,PSEN2,presenilin 2
+169522,KCNV2,"potassium channel, voltage gated modifier subfamily V, member 2"
+1588,CYP19A1,"cytochrome P450, family 19, subfamily A, polypeptide 1"
+9783,RIMS3,regulating synaptic membrane exocytosis 3
+26167,PCDHB5,protocadherin beta 5
+24145,PANX1,pannexin 1
+1621,DBH,dopamine beta-hydroxylase (dopamine beta-monooxygenase)
+1622,DBI,"diazepam binding inhibitor (GABA receptor modulator, acyl-CoA binding protein)"
+347730,LRRTM1,leucine rich repeat transmembrane neuronal 1
+1627,DBN1,drebrin 1
+56923,NMUR2,neuromedin U receptor 2
+5728,PTEN,phosphatase and tensin homolog
+7779,SLC30A1,"solute carrier family 30 (zinc transporter), member 1"
+1644,DDC,dopa decarboxylase (aromatic L-amino acid decarboxylase)
+5743,PTGS2,prostaglandin-endoperoxide synthase 2 (prostaglandin G/H synthase and cyclooxygenase)
+50801,KCNK4,"potassium channel, two pore domain subfamily K, member 4"
+5747,PTK2,protein tyrosine kinase 2
+54899,PXK,PX domain containing serine/threonine kinase
+149111,CNIH3,cornichon family AMPA receptor auxiliary protein 3
+3706,ITPKA,inositol-trisphosphate 3-kinase A
+7804,LRP8,"low density lipoprotein receptor-related protein 8, apolipoprotein e receptor"
+3710,ITPR3,"inositol 1,4,5-trisphosphate receptor, type 3"
+81539,SLC38A1,"solute carrier family 38, member 1"
+26251,KCNG2,"potassium channel, voltage gated modifier subfamily G, member 2"
+26258,BLOC1S6,"biogenesis of lysosomal organelles complex-1, subunit 6, pallidin"
+3736,KCNA1,"potassium channel, voltage gated shaker related subfamily A, member 1"
+3737,KCNA2,"potassium channel, voltage gated shaker related subfamily A, member 2"
+3738,KCNA3,"potassium channel, voltage gated shaker related subfamily A, member 3"
+3739,KCNA4,"potassium channel, voltage gated shaker related subfamily A, member 4"
+392862,GRID2IP,"glutamate receptor, ionotropic, delta 2 (Grid2) interacting protein"
+3741,KCNA5,"potassium channel, voltage gated shaker related subfamily A, member 5"
+3742,KCNA6,"potassium channel, voltage gated shaker related subfamily A, member 6"
+3743,KCNA7,"potassium channel, voltage gated shaker related subfamily A, member 7"
+3744,KCNA10,"potassium channel, voltage gated shaker related subfamily A, member 10"
+5792,PTPRF,"protein tyrosine phosphatase, receptor type, F"
+3745,KCNB1,"potassium channel, voltage gated Shab related subfamily B, member 1"
+3746,KCNC1,"potassium channel, voltage gated Shaw related subfamily C, member 1"
+3747,KCNC2,"potassium channel, voltage gated Shaw related subfamily C, member 2"
+3748,KCNC3,"potassium channel, voltage gated Shaw related subfamily C, member 3"
+9892,SNAP91,"synaptosomal-associated protein, 91kDa"
+3749,KCNC4,"potassium channel, voltage gated Shaw related subfamily C, member 4"
+3750,KCND1,"potassium channel, voltage gated Shal related subfamily D, member 1"
+3751,KCND2,"potassium channel, voltage gated Shal related subfamily D, member 2"
+3752,KCND3,"potassium channel, voltage gated Shal related subfamily D, member 3"
+3754,KCNF1,"potassium channel, voltage gated modifier subfamily F, member 1"
+3755,KCNG1,"potassium channel, voltage gated modifier subfamily G, member 1"
+9899,SV2B,synaptic vesicle glycoprotein 2B
+3756,KCNH1,"potassium channel, voltage gated eag related subfamily H, member 1"
+9900,SV2A,synaptic vesicle glycoprotein 2A
+3757,KCNH2,"potassium channel, voltage gated eag related subfamily H, member 2"
+3758,KCNJ1,"potassium channel, inwardly rectifying subfamily J, member 1"
+3759,KCNJ2,"potassium channel, inwardly rectifying subfamily J, member 2"
+3760,KCNJ3,"potassium channel, inwardly rectifying subfamily J, member 3"
+3761,KCNJ4,"potassium channel, inwardly rectifying subfamily J, member 4"
+3762,KCNJ5,"potassium channel, inwardly rectifying subfamily J, member 5"
+3763,KCNJ6,"potassium channel, inwardly rectifying subfamily J, member 6"
+3764,KCNJ8,"potassium channel, inwardly rectifying subfamily J, member 8"
+3765,KCNJ9,"potassium channel, inwardly rectifying subfamily J, member 9"
+3766,KCNJ10,"potassium channel, inwardly rectifying subfamily J, member 10"
+3767,KCNJ11,"potassium channel, inwardly rectifying subfamily J, member 11"
+3768,KCNJ12,"potassium channel, inwardly rectifying subfamily J, member 12"
+3770,KCNJ14,"potassium channel, inwardly rectifying subfamily J, member 14"
+5818,PVRL1,poliovirus receptor-related 1 (herpesvirus entry mediator C)
+3772,KCNJ15,"potassium channel, inwardly rectifying subfamily J, member 15"
+3773,KCNJ16,"potassium channel, inwardly rectifying subfamily J, member 16"
+3775,KCNK1,"potassium channel, two pore domain subfamily K, member 1"
+3776,KCNK2,"potassium channel, two pore domain subfamily K, member 2"
+1728,NQO1,"NAD(P)H dehydrogenase, quinone 1"
+3777,KCNK3,"potassium channel, two pore domain subfamily K, member 3"
+3778,KCNMA1,"potassium channel, calcium activated large conductance subfamily M alpha, member 1"
+3779,KCNMB1,potassium channel subfamily M regulatory beta subunit 1
+3780,KCNN1,"potassium channel, calcium activated intermediate/small conductance subfamily N alpha, member 1"
+3781,KCNN2,"potassium channel, calcium activated intermediate/small conductance subfamily N alpha, member 2"
+57030,SLC17A7,"solute carrier family 17 (vesicular glutamate transporter), member 7"
+3782,KCNN3,"potassium channel, calcium activated intermediate/small conductance subfamily N alpha, member 3"
+3783,KCNN4,"potassium channel, calcium activated intermediate/small conductance subfamily N alpha, member 4"
+3784,KCNQ1,"potassium channel, voltage gated KQT-like subfamily Q, member 1"
+3785,KCNQ2,"potassium channel, voltage gated KQT-like subfamily Q, member 2"
+7881,KCNAB1,"potassium channel, voltage gated subfamily A regulatory beta subunit 1"
+3786,KCNQ3,"potassium channel, voltage gated KQT-like subfamily Q, member 3"
+3787,KCNS1,"potassium voltage-gated channel, modifier subfamily S, member 1"
+1739,DLG1,"discs, large homolog 1 (Drosophila)"
+1740,DLG2,"discs, large homolog 2 (Drosophila)"
+3788,KCNS2,"potassium voltage-gated channel, modifier subfamily S, member 2"
+1741,DLG3,"discs, large homolog 3 (Drosophila)"
+1742,DLG4,"discs, large homolog 4 (Drosophila)"
+3790,KCNS3,"potassium voltage-gated channel, modifier subfamily S, member 3"
+3791,KDR,kinase insert domain receptor
+3798,KIF5A,kinesin family member 5A
+116443,GRIN3A,"glutamate receptor, ionotropic, N-methyl-D-aspartate 3A"
+1756,DMD,dystrophin
+57053,CHRNA10,"cholinergic receptor, nicotinic, alpha 10 (neuronal)"
+116444,GRIN3B,"glutamate receptor, ionotropic, N-methyl-D-aspartate 3B"
+89822,KCNK17,"potassium channel, two pore domain subfamily K, member 17"
+1760,DMPK,dystrophia myotonica-protein kinase
+3814,KISS1,KiSS-1 metastasis-suppressor
+3815,KIT,v-kit Hardy-Zuckerman 4 feline sarcoma viral oncogene homolog
+5864,RAB3A,"RAB3A, member RAS oncogene family"
+5865,RAB3B,"RAB3B, member RAS oncogene family"
+7915,ALDH5A1,"aldehyde dehydrogenase 5 family, member A1"
+5868,RAB5A,"RAB5A, member RAS oncogene family"
+1785,DNM2,dynamin 2
+79608,RIC3,RIC3 acetylcholine receptor chaperone
+57084,SLC17A6,"solute carrier family 17 (vesicular glutamate transporter), member 6"
+50944,SHANK1,SH3 and multiple ankyrin repeat domains 1
+3845,KRAS,Kirsten rat sarcoma viral oncogene homolog
+5894,RAF1,"Raf-1 proto-oncogene, serine/threonine kinase"
+1808,DPYSL2,dihydropyrimidinase-like 2
+5906,RAP1A,"RAP1A, member of RAS oncogene family"
+10003,NAALAD2,N-acetylated alpha-linked acidic dipeptidase 2
+1812,DRD1,dopamine receptor D1
+5908,RAP1B,"RAP1B, member of RAS oncogene family"
+1813,DRD2,dopamine receptor D2
+1814,DRD3,dopamine receptor D3
+1815,DRD4,dopamine receptor D4
+1816,DRD5,dopamine receptor D5
+5913,RAPSN,receptor-associated protein of the synapse
+5914,RARA,"retinoic acid receptor, alpha"
+5923,RASGRF1,Ras protein-specific guanine nucleotide-releasing factor 1
+5924,RASGRF2,Ras protein-specific guanine nucleotide-releasing factor 2
+10021,HCN4,hyperpolarization activated cyclic nucleotide gated potassium channel 4
+1837,DTNA,"dystrobrevin, alpha"
+1855,DVL1,dishevelled segment polarity protein 1
+3908,LAMA2,"laminin, alpha 2"
+10052,GJC1,"gap junction protein, gamma 1, 45kDa"
+1861,TOR1A,"torsin family 1, member A (torsin A)"
+91978,TPGS1,tubulin polyglutamylase complex subunit 1
+10060,ABCC9,"ATP-binding cassette, sub-family C (CFTR/MRP), member 9"
+94030,LRRC4B,leucine rich repeat containing 4B
+83795,KCNK16,"potassium channel, two pore domain subfamily K, member 16"
+10089,KCNK7,"potassium channel, two pore domain subfamily K, member 7"
+1906,EDN1,endothelin 1
+1908,EDN3,endothelin 3
+145270,PRIMA1,proline rich membrane anchor 1
+6014,RIT2,Ras-like without CAAX 2
+59283,CACNG8,"calcium channel, voltage-dependent, gamma subunit 8"
+10142,AKAP9,A kinase (PRKA) anchor protein 9
+1956,EGFR,epidermal growth factor receptor
+1958,EGR1,early growth response 1
+81831,NETO2,neuropilin (NRP) and tolloid (TLL)-like 2
+1959,EGR2,early growth response 2
+1960,EGR3,early growth response 3
+81832,NETO1,neuropilin (NRP) and tolloid (TLL)-like 1
+147381,CBLN2,cerebellin 2 precursor
+8120,AP3B2,"adaptor-related protein complex 3, beta 2 subunit"
+4040,LRP6,low density lipoprotein receptor-related protein 6
+6092,ROBO2,"roundabout, axon guidance receptor, homolog 2 (Drosophila)"
+440279,UNC13C,unc-13 homolog C (C. elegans)
+2030,SLC29A1,"solute carrier family 29 (equilibrative nucleoside transporter), member 1"
+2036,EPB41L1,erythrocyte membrane protein band 4.1-like 1
+57338,JPH3,junctophilin 3
+2044,EPHA5,EPH receptor A5
+124925,SEZ6,seizure related 6 homolog (mouse)
+10239,AP3S2,"adaptor-related protein complex 3, sigma 2 subunit"
+2047,EPHB1,EPH receptor B1

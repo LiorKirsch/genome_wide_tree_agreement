@@ -2,6 +2,20 @@ function [ind_for_A, ind_for_B] = mapGenes(gene_symbols_A, gene_symbols_B, entre
 % return the indices of the genes that appear in both A and B
 % checks for the same gene name and adds genes with the same entrez
 
+if iscell(entrez_A)
+    if ~iscellstr(entrez_A)
+        entrez_A = cellfun(@(x) sprintf('%d',x), entrez_A,'UniformOutput',false);
+    end
+else
+    entrez_A = arrayfun(@(x) sprintf('%d',x), entrez_A,'UniformOutput',false);
+end
+if iscell(entrez_B)
+    if ~iscellstr(entrez_B)
+        entrez_B = cellfun(@(x) sprintf('%d',x), entrez_B,'UniformOutput',false);
+    end
+else
+    entrez_B = arrayfun(@(x) sprintf('%d',x), entrez_B,'UniformOutput',false);
+end
    gene_symbols_A = upper(gene_symbols_A);
    gene_symbols_B = upper(gene_symbols_B);
 

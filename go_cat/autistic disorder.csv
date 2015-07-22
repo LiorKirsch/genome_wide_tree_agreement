@@ -1,0 +1,241 @@
+Gene ID,Symbol,Name
+2560,GABRB1,gamma-aminobutyric acid (GABA) A receptor, beta 1
+2562,GABRB3,gamma-aminobutyric acid (GABA) A receptor, beta 3
+3586,IL10,interleukin 10
+9732,DOCK4,dedicator of cytokinesis 4
+151556,GPR155,G protein-coupled receptor 155
+2571,GAD1,glutamate decarboxylase 1 (brain, 67kDa)
+3596,IL13,interleukin 13
+9228,DLGAP2,discs, large (Drosophila) homolog-associated protein 2
+51725,FBXO40,F-box protein 40
+285195,SLC9A9,solute carrier family 9, subfamily A (NHE9, cation proton antiporter 9), member 9
+3600,IL15,interleukin 15
+5649,RELN,reelin
+11281,POU6F2,POU class 6 homeobox 2
+18,ABAT,4-aminobutyrate aminotransferase
+10771,ZMYND11,zinc finger, MYND-type containing 11
+5141,PDE4A,phosphodiesterase 4A, cAMP-specific
+51733,UPB1,ureidopropionase, beta
+5142,PDE4B,phosphodiesterase 4B, cAMP-specific
+54806,AHI1,Abelson helper integration site 1
+4128,MAOA,monoamine oxidase A
+3105,HLA-A,major histocompatibility complex, class I, A
+4129,MAOB,monoamine oxidase B
+4642,MYO1D,myosin ID
+36,ACADSB,acyl-CoA dehydrogenase, short/branched chain
+23078,VWA8,von Willebrand factor A domain containing 8
+551,AVP,arginine vasopressin
+40,ASIC2,acid sensing (proton gated) ion channel 2
+552,AVPR1A,arginine vasopressin receptor 1A
+4139,MARK1,MAP/microtubule affinity-regulating kinase 1
+3628,INPP1,inositol polyphosphate-1-phosphatase
+27185,DISC1,disrupted in schizophrenia 1
+8242,KDM5C,lysine (K)-specific demethylase 5C
+3123,HLA-DRB1,major histocompatibility complex, class II, DR beta 1
+1588,CYP19A1,cytochrome P450, family 19, subfamily A, polypeptide 1
+5175,PECAM1,platelet/endothelial cell adhesion molecule 1
+1600,DAB1,Dab, reelin signal transducer, homolog 1 (Drosophila)
+4163,MCC,mutated in colorectal cancers
+5187,PER1,period circadian clock 1
+1610,DAO,D-amino-acid oxidase
+170572,HTR3C,5-hydroxytryptamine (serotonin) receptor 3C, ionotropic
+7248,TSC1,tuberous sclerosis 1
+7249,TSC2,tuberous sclerosis 2
+2131,EXT1,exostosin glycosyltransferase 1
+596,BCL2,B-cell CLL/lymphoma 2
+3676,ITGA4,integrin, alpha 4 (antigen CD49D, alpha 4 subunit of VLA-4 receptor)
+5728,PTEN,phosphatase and tensin homolog
+100,ADA,adenosine deaminase
+114788,CSMD3,CUB and Sushi multiple domains 3
+94313,AUTS5,Autism, susceptibility to, 5
+3690,ITGB3,integrin, beta 3 (platelet glycoprotein IIIa, antigen CD61)
+4204,MECP2,methyl CpG binding protein 2
+5743,PTGS2,prostaglandin-endoperoxide synthase 2 (prostaglandin G/H synthase and cyclooxygenase)
+4208,MEF2C,myocyte enhancer factor 2C
+1137,CHRNA4,cholinergic receptor, nicotinic, alpha 4 (neuronal)
+627,BDNF,brain-derived neurotrophic factor
+1139,CHRNA7,cholinergic receptor, nicotinic, alpha 7 (neuronal)
+1141,CHRNB2,cholinergic receptor, nicotinic, beta 2 (neuronal)
+205428,C3orf58,chromosome 3 open reading frame 58
+6779,STATH,statherin
+8828,NRP2,neuropilin 2
+3198,HOXA1,homeobox A1
+8831,SYNGAP1,synaptic Ras GTPase activating protein 1
+9855,FARP2,FERM, RhoGEF and pleckstrin domain protein 2
+2690,GHR,growth hormone receptor
+133,ADM,adrenomedullin
+2697,GJA1,gap junction protein, alpha 1, 43kDa
+4233,MET,MET proto-oncogene, receptor tyrosine kinase
+23178,PASK,PAS domain containing serine/threonine kinase
+54413,NLGN3,neuroligin 3
+139411,PTCHD1,patched domain containing 1
+6804,STX1A,syntaxin 1A (brain)
+23705,CADM1,cell adhesion molecule 1
+154,ADRB2,adrenoceptor beta 2, surface
+4763,NF1,neurofibromin 1
+158,ADSL,adenylosuccinate lyase
+57502,NLGN4X,neuroligin 4, X-linked
+7328,UBE2H,ubiquitin-conjugating enzyme E2H
+9378,NRXN1,neurexin 1
+3237,HOXD11,homeobox D11
+7337,UBE3A,ubiquitin protein ligase E3A
+192683,SCAMP5,secretory carrier membrane protein 5
+686,BTD,biotinidase
+5294,PIK3CG,phosphatidylinositol-4,5-bisphosphate 3-kinase, catalytic subunit gamma
+2739,GLO1,glyoxalase I
+1717,DHCR7,7-dehydrocholesterol reductase
+1719,DHFR,dihydrofolate reductase
+4282,MIF,macrophage migration inhibitory factor (glycosylation-inhibiting factor)
+5307,PITX1,paired-like homeodomain 1
+6332,SCN7A,sodium channel, voltage gated, type VII alpha subunit
+3265,HRAS,Harvey rat sarcoma viral oncogene homolog
+3778,KCNMA1,potassium channel, calcium activated large conductance subfamily M alpha, member 1
+5321,PLA2G4A,phospholipase A2, group IVA (cytosolic, calcium-dependent)
+23245,ASTN2,astrotactin 2
+8912,CACNA1H,calcium channel, voltage-dependent, T type, alpha 1H subunit
+1745,DLX1,distal-less homeobox 1
+5329,PLAUR,plasminogen activator, urokinase receptor
+721,C4B,complement component 4B (Chido blood group)
+1746,DLX2,distal-less homeobox 2
+27347,STK39,serine threonine kinase 39
+152789,JAKMIP1,janus kinase and microtubule interacting protein 1
+116442,RAB39B,RAB39B, member RAS oncogene family
+64221,ROBO3,roundabout guidance receptor 3
+8930,MBD4,methyl-CpG binding domain 4 DNA glycosylase
+57575,PCDH10,protocadherin 10
+4843,NOS2,nitric oxide synthase 2, inducible
+116987,AGAP1,ArfGAP with GTPase domain, ankyrin repeat and PH domain 1
+4862,NPAS2,neuronal PAS domain protein 2
+50944,SHANK1,SH3 and multiple ankyrin repeat domains 1
+775,CACNA1C,calcium channel, voltage-dependent, L type, alpha 1C subunit
+7432,VIP,vasoactive intestinal peptide
+152330,CNTN4,contactin 4
+54538,ROBO4,roundabout guidance receptor 4
+7436,VLDLR,very low density lipoprotein receptor
+1806,DPYD,dihydropyrimidine dehydrogenase
+3346,HTN1,histatin 1
+1812,DRD1,dopamine receptor D1
+1814,DRD3,dopamine receptor D3
+3351,HTR1B,5-hydroxytryptamine (serotonin) receptor 1B, G protein-coupled
+54551,MAGEL2,melanoma antigen family L2
+3352,HTR1D,5-hydroxytryptamine (serotonin) receptor 1D, G protein-coupled
+796,CALCA,calcitonin-related polypeptide alpha
+2332,FMR1,fragile X mental retardation 1
+3356,HTR2A,5-hydroxytryptamine (serotonin) receptor 2A, G protein-coupled
+3359,HTR3A,5-hydroxytryptamine (serotonin) receptor 3A, ionotropic
+1312,COMT,catechol-O-methyltransferase
+4897,NRCAM,neuronal cell adhesion molecule
+3361,HTR5A,5-hydroxytryptamine (serotonin) receptor 5A, G protein-coupled
+93986,FOXP2,forkhead box P2
+6948,TCN2,transcobalamin II
+4908,NTF3,neurotrophin 3
+4909,NTF4,neurotrophin 4
+7472,WNT2,wingless-type MMTV integration site family member 2
+4915,NTRK2,neurotrophic tyrosine kinase, receptor, type 2
+9013,TAF1C,TATA box binding protein (TBP)-associated factor, RNA polymerase I, C, 110kDa
+2876,GPX1,glutathione peroxidase 1
+9025,RNF8,ring finger protein 8, E3 ubiquitin protein ligase
+554314,AUTS6,Autism, susceptibility to, 6
+5443,POMC,proopiomelanocortin
+324,APC,adenomatous polyposis coli
+5444,PON1,paraoxonase 1
+64324,NSD1,nuclear receptor binding SET domain protein 1
+64326,RFWD2,ring finger and WD repeat domain 2, E3 ubiquitin protein ligase
+3912,LAMB1,laminin, beta 1
+2890,GRIA1,glutamate receptor, ionotropic, AMPA 1
+7498,XDH,xanthine dehydrogenase
+1356,CP,ceruloplasmin (ferroxidase)
+9037,SEMA5A,sema domain, seven thrombospondin repeats (type 1 and type 1-like), transmembrane domain (TM) and short cytoplasmic domain, (semaphorin) 5A
+847,CAT,catalase
+26960,NBEA,neurobeachin
+2898,GRIK2,glutamate receptor, ionotropic, kainate 2
+7508,XPC,xeroderma pigmentosum, complementation group C
+3927,LASP1,LIM and SH3 protein 1
+6999,TDO2,tryptophan 2,3-dioxygenase
+22871,NLGN1,neuroligin 1
+2903,GRIN2A,glutamate receptor, ionotropic, N-methyl D-aspartate 2A
+100188832,AUTS1,Autism, susceptibility to, 1
+9568,GABBR2,gamma-aminobutyric acid (GABA) B receptor, 2
+23394,ADNP,activity-dependent neuroprotector homeobox
+100188314,AUTS12,autism, susceptibility to, 12
+100188317,AUTS13,autism, susceptibility to, 13
+2918,GRM8,glutamate receptor, metabotropic 8
+26470,SEZ6L2,seizure related 6 homolog (mouse)-like 2
+221035,REEP3,receptor accessory protein 3
+100188816,AUTS7,Autism, susceptibility to, 7
+361,AQP4,aquaporin 4
+7018,TF,transferrin
+57194,ATP10A,ATPase, class V, type 10A
+6507,SLC1A3,solute carrier family 1 (glial high affinity glutamate transporter), member 3
+100188820,AUTS11,Autism, susceptibility to, 11
+30061,SLC40A1,solute carrier family 40 (iron-regulated transporter), member 1
+221037,JMJD1C,jumonji domain containing 1C
+367,AR,androgen receptor
+53615,MBD3,methyl-CpG binding domain protein 3
+85358,SHANK3,SH3 and multiple ankyrin repeat domains 3
+3952,LEP,leptin
+406900,MIR106B,microRNA 106b
+2944,GSTM1,glutathione S-transferase mu 1
+3458,IFNG,interferon, gamma
+6532,SLC6A4,solute carrier family 6 (neurotransmitter transporter), member 4
+11141,IL1RAPL1,interleukin 1 receptor accessory protein-like 1
+2950,GSTP1,glutathione S-transferase pi 1
+6535,SLC6A8,solute carrier family 6 (neurotransmitter transporter), member 8
+3479,IGF1,insulin-like growth factor 1 (somatomedin C)
+3481,IGF2,insulin-like growth factor 2
+5020,OXT,oxytocin/neurophysin I prepropeptide
+8604,SLC25A12,solute carrier family 25 (aspartate/glutamate carrier), member 12
+22941,SHANK2,SH3 and multiple ankyrin repeat domains 2
+5021,OXTR,oxytocin receptor
+1950,EGF,epidermal growth factor
+3486,IGFBP3,insulin-like growth factor binding protein 3
+29091,STXBP6,syntaxin binding protein 6 (amisyn)
+27044,SND1,staphylococcal nuclease and tudor domain containing 1
+1959,EGR2,early growth response 2
+4520,MTF1,metal-regulatory transcription factor 1
+4524,MTHFR,methylenetetrahydrofolate reductase (NAD(P)H)
+6573,SLC19A1,solute carrier family 19 (folate transporter), member 1
+5551,PRF1,perforin 1 (pore forming protein)
+100187724,DEL16P11.2,autism, susceptibility to, 14
+438,ASMT,acetylserotonin O-methyltransferase
+3002,GZMB,granzyme B (granzyme 2, cytotoxic T-lymphocyte-associated serine esterase 1)
+54715,RBFOX1,RNA binding protein, fox-1 homolog (C. elegans) 1
+282553,AUTS8,Autism, susceptibility to, 8
+5054,SERPINE1,serpin peptidase inhibitor, clade E (nexin, plasminogen activator inhibitor type 1), member 1
+26047,CNTNAP2,contactin associated protein-like 2
+121278,TPH2,tryptophan hydroxylase 2
+140733,MACROD2,MACRO domain containing 2
+8128,ST8SIA2,ST8 alpha-N-acetyl-neuraminide alpha-2,8-sialyltransferase 2
+26056,RAB11FIP5,RAB11 family interacting protein 5 (class I)
+5067,CNTN3,contactin 3 (plasmacytoma associated)
+5579,PRKCB,protein kinase C, beta
+6091,ROBO1,roundabout guidance receptor 1
+6092,ROBO2,roundabout guidance receptor 2
+54221,SNTG2,syntrophin, gamma 2
+5071,PARK2,parkin RBR E3 ubiquitin protein ligase
+6095,RORA,RAR-related orphan receptor A
+200150,PLD5,phospholipase D family, member 5
+5080,PAX6,paired box 6
+7133,TNFRSF1B,tumor necrosis factor receptor superfamily, member 1B
+93664,CADPS2,Ca++-dependent secretion activator 2
+2020,EN2,engrailed homeobox 2
+407010,MIR23A,microRNA 23a
+3557,IL1RN,interleukin 1 receptor antagonist
+3558,IL2,interleukin 2
+83943,IMMP2L,inner mitochondrial membrane peptidase subunit 2
+3565,IL4,interleukin 4
+1007,CDH9,cadherin 9, type 2 (T1-cadherin)
+3567,IL5,interleukin 5
+1008,CDH10,cadherin 10, type 2 (T2-cadherin)
+3569,IL6,interleukin 6
+5617,PRL,prolactin
+5618,PRLR,prolactin receptor
+2550,GABBR1,gamma-aminobutyric acid (GABA) B receptor, 1
+6134,RPL10,ribosomal protein L10
+2554,GABRA1,gamma-aminobutyric acid (GABA) A receptor, alpha 1
+2555,GABRA2,gamma-aminobutyric acid (GABA) A receptor, alpha 2
+2556,GABRA3,gamma-aminobutyric acid (GABA) A receptor, alpha 3
+387577,AUTS3,Autism, susceptibility to, 3
+2557,GABRA4,gamma-aminobutyric acid (GABA) A receptor, alpha 4
+3069,HDLBP,high density lipoprotein binding protein
+2558,GABRA5,gamma-aminobutyric acid (GABA) A receptor, alpha 5

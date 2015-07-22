@@ -64,7 +64,6 @@ function drawTheValuesOfGeneMain()
     drawTheValuesOfGene(neurod1GeneIndex, human_expression, samplesTreeDistance, human_gene_info);
 %     drawTheValuesOfGene(medianGeneIndex, human_expression, samplesTreeDistance, human_gene_info);
   
-
 end
 
 function samplesDistance = getSamplesDistance(sample_gross_ind, distance_matrix)
@@ -98,10 +97,12 @@ function drawTheValuesOfGene(geneIndex, human_expression, distancesMatrix, human
     randomIndex = randi(length(onlyUpperDistanceMatrix), 10^5,1); % because there are too many dots to draw
     
     createFigure;
+    
     maxTreeDistance = max(onlyUpperDistanceMatrix(randomIndex));
     hist2_alt( onlyUpperDistanceMatrix(randomIndex), onlyUpperExpressionMatrix(randomIndex),maxTreeDistance,16);
+    set(gca,'FontSize',20);
     xlabel('Ontology distance'); ylabel('Expression distance');
-    fileName = sprintf('2dhist-%s-corr-%.2g', geneName, spearmanScore);
+    fileName = sprintf('figures/2dhist-%s-corr-%.2g', geneName, spearmanScore);
     saveFigure(gcf, [fileName, '.png'], 'png');
     saveFigure(gcf, [fileName, '.tiff'], 'tiff');
     saveFigure(gcf, [fileName, '.eps'], 'eps');

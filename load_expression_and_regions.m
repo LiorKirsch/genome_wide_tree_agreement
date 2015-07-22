@@ -57,7 +57,7 @@ function  [expression, gross_region_vec, gene_info,samples2subjects,gross_struct
     if isempty(local_experimentsDataMatrix)
         fprintf('human6: loading data from disk\n');
         % Load human data 
-        data_dirname = fullfile('/','home','lab', 'lior', 'Projects', 'individual variability','data');
+        data_dirname = fullfile('/cortex/data/microarray/human/Hawrylycz_2012');
         ontology_dirname = fullfile('/','home','lab', 'lior', 'Projects', 'individual variability');
         filename = 'easyFormatHumanData.mat';
         fullname = fullfile(data_dirname, filename);

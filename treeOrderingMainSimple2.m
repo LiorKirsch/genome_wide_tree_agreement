@@ -140,7 +140,7 @@ function drawTheValuesOfGene(geneIndex, expression, distancesMatrix, gene_info)
     createFigure;
     hist2_alt( onlyUpperDistanceMatrix(randomIndex), onlyUpperExpressionMatrix(randomIndex),nan,16);
     xlabel('Tree distance'); ylabel('Expression distance');
-    fileName = sprintf('typical-%s-hist2', geneName);
+    fileName = sprintf('figures/typical-%s-hist2', geneName);
     saveFigure(gcf, fileName, 'png');
     saveFigure(gcf, fileName, 'eps');
     
